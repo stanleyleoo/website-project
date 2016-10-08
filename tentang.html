@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About HMFH</title>
+	<style>
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: url("img/index.jpg") no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+	.wrapper{
+		width: 100%;
+		max-height: 6000px;
+	}
+	.wrapper:before,
+	.wrapper:after,
+	.row:before,
+	.row:after{
+		content: "";
+		display: table;
+	}
+	.wrapper:after;
+	.row:after{
+		clear: both;
+	}
+	.row{
+		clear: both;
+	}
+	.body{
+		width: 1200px;
+		max-height: 5600px;
+		margin: auto;
+	}
+	.header{
+		width: 1200px;
+		height: 120px;
+		background-color: #002b80;
+	}
+	.logo{
+		width: 300px;
+		height: 120px;
+		float: left;
+	}
+	.logo img{
+		margin-left: 150px;
+	}
+	.name{
+		width: 800px;
+		height: 120px;
+		color:white;
+		float: right;
+	}
+	.name h1{
+		text-align: left;	
+	}
+	.menu{
+		width: 1200px;
+		height: 50px;
+		background-color:#ffa31a;
+	}
+
+	.body2{
+		background-color: #e0ebeb;
+		width: 1200px;
+		max-height: 5000px;
+		margin:auto;
+		margin-top: -1px;
+	}
+	.image{
+		background-image: url(img/grup.jpg);
+		height: 600px;
+		width: 1200px;
+		max-height: 1500px;
+		margin-top: -50px;
+	}
+	.image p{
+		text-align: center;
+		font-size: 50px;
+		padding-top: 250px;
+	}
+	.image .text{
+		width: 1200px;
+		height: 600px;
+		max-height: 1500px;
+		opacity: 0;
+	}
+	.image .text:hover{
+		transition: 0.5s ease;
+		opacity: 1;
+		color:#ffa31a;
+	}
+	.about-head{
+		width: 1200px;
+		height: 80px;
+		background-color: #002b80;
+		text-align: center;
+		color:white;
+		font-size: 35px;
+		margin-top: -30px;
+	}
+	.about-head p{
+		padding-top: 15px;
+	}
+	.about{
+		width: 1000px;
+		max-height: 400px;
+		text-align: center;
+		margin:auto;
+		font-size: 20px;
+	}
+	.about p{
+		margin-top: 40px;
+		margin-bottom: 70px;
+	}
+	.wrapper-team{
+		width: 100%;
+		height: 4250px;
+		margin: auto;
+		background-color: #e0ebeb;
+	}
+	.member{
+		width: 350px;
+		height: 500px;
+		background-color: white;
+		color:white;
+		float: left;
+		margin: 20px 10px 10px 33px;
+	}
+	.member img{
+		margin: 50px 70px 0 50px;
+	}
+	.member p{
+		color:black;
+		font-size: 25px;
+		text-align: center;
+	}
+	.footer{
+		width: 1200px;
+		height: 50px;
+		background-color:black;
+		color:white;
+		margin:auto;
+		text-align: center;
+		margin-top: -20px;
+	}
+	.footer h2{
+		padding-top:10px;
+	}
+	.menu ul
+		{
+			font-size: 15px;
+			list-style:none;
+			position:relative;
+			float:left;
+			margin:0;
+			padding:0;
+			z-index : 999;
+		}
+	.menu ul li{
+		width: 240px;
+		text-decoration: none;
+		display: inline-block;
+		list-style:none;
+		text-align: center;
+	}
+	.menu ul li a{
+		font-size: 15px;
+		color:white;
+		text-decoration: none;
+		padding-top: 10px;
+		padding-bottom: 9px;
+	}
+	.menu li a:hover{
+		transition: 0.3s ease;
+	}
+		.menu ul a
+		{
+			display:block;
+			color:#333;
+			text-decoration:none;
+			font-weight:700;
+			font-size:12px;
+			line-height:32px;
+			font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+		}
+
+		.menu ul li
+		{
+			position:relative;
+			float:left;
+			z-index : 999;
+			margin:0;
+			padding:0;
+			left: 0px;
+			bottom:0px;
+
+		}
+
+		.menu ul li.current-menu-item
+		{
+			background:#993d00;
+		}
+
+		.menu ul li:hover
+		{
+			background:#e68a00;
+		}
+
+		.menu ul ul
+		{
+			display:none;
+			position:absolute;
+			top:100%;
+			left:0;
+			background:#fff;
+			padding:0;
+			z-index : 999;
+		}
+
+		.menu ul ul li
+		{
+			float:none;
+			width:240px;
+			z-index : 999;
+		background-color: #ffa31a;
+		}
+
+		.menu ul ul a
+		{
+			line-height:120%;
+			padding:10px 15px;
+			z-index : 999;
+		}
+
+		.menu ul ul ul
+		{
+			top:0;
+			left:100%;
+			z-index : 999;
+		}
+
+		.menu ul li:hover > ul
+		{
+			display:block;
+			z-index : 999;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="body">
+		<div class="row">	
+			<div class="header">
+				<div class="logo">
+				<img src="img/logo.png">
+				</div>
+				<div class="name">
+					<h1>Himpunan Mahasiswa Fakultas Hukum<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspUPH Medan</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="menu">
+						<ul>
+						  <li><a href="hmj.html">Home</a></li>
+						  <li  class="current-menu-item"><a href="tentang.html">Tentang HMFH</a></li>
+						  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
+						  <li><a href="Kegiatan.html">Kegiatan</a></li>
+						  <li><a href="glosarium.html">Glosarium</a>
+							  <ul>
+							      <li class="dir"><a href="#">Sub Menu 1</a>
+							      	<ul>
+							          <li><a href="#">Category 1</a></li>
+							          <li><a href="#">Category 2</a></li>
+							          <li><a href="#">Category 3</a></li>
+							          <li><a href="#">Category 4</a></li>
+							          <li><a href="#">Category 5</a></li>
+							        </ul>
+							      </li>
+							      <li class="dir"><a href="#">Sub Menu 2</a>
+							        <ul>
+							          <li><a href="#">Category 1</a></li>
+							          <li><a href="#">Category 2</a></li>
+							          <li><a href="#">Category 3</a></li>
+							          <li><a href="#">Category 4</a></li>
+							          <li><a href="#">Category 5</a></li>
+							        </ul>
+							      </li>
+							      <li><a href="#">Sub Menu 3</a></li>
+							      <li><a href="#">Sub Menu 4</a></li>
+							      <li><a href="#">Sub Menu 5</a></li>
+						    </ul>
+						  </li>
+						</ul>
+			</div>
+				</div>
+		</div>
+		<div class="row">
+			<div class="body2">
+				<div class="row">
+					<div class="image">
+						<div class="text">
+						<p>Tentang HMFH</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="about-head">
+						<p>Tentang HMFH</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="about">
+						<p>We are an organization for the student of Information System. We are based in Medan, to be exact at Pelita Harapan University Medan. This organization was formed at February 6, 2016. We are lead by our coordinator who named Okky Putra Barus. We consist of 20 members who all are the year of 2015 student. There are some Divisions in our organization to help ease each other's workload. Each Division was lead by a coordinator to supervise the work of the divison.
+						The organization's establishment actually starts from a club which has almost the same goals, but in a more specific way. The organization has a broader scope so the club eventually was under the supervision of this organization. The member who joined the organization was almost the same.</p>
+					</div>
+					<div class="about-head">
+						<p>Daftar Anggota</p>
+					</div>
+				<div class="row">
+					<div class="wrapper-team">
+						<div class="team">
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+							<div class="member">
+								<img src="img/test-profile.png">
+								<p><b>Budiman</b><br><o style="color:#9c9c63;font-size:20px;">President of HMFH Medan</o><br>Faculty of Law, 2015</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="footer">
+						<h2>&copy2016 by HMFH UPH MEDAN</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
