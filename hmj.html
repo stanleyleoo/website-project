@@ -536,6 +536,7 @@
 		<div class="row">
 			<div class="slider-bg">
 				<ul id="css3-slider">
+
 					<li >
 						<input type="radio" id="s1" name="num" checked="true" class="mySlides"/>
 						<label for="s1">1</label>
@@ -544,38 +545,7 @@
 							<span>Studi Banding HMFH Medan</span>
 						</a>
 					</li>
-					<li>
-					<input type="radio" id="s2" name="num" class="mySlides" />
-						<label for="s2">2</label>
-						<a href="javascript:void(0);">
-							<img src="http://cssdeck.com/uploads/media/items/9/9J2jvF6.jpg" />
-							<span>How can you look ahead if your eyes are on the side?</span>
-						</a>
-					</li>
-					<li>
-						<input type="radio" id="s3" name="num" class="mySlides"/>
-						<label for="s3">3</label>
-						<a href="javascript:void(0);">
-							<img src="http://cssdeck.com/uploads/media/items/0/0ckDaQF.jpg" />
-							<span>Keep praying to God</span>
-						</a>
-					</li>
-					<li>
-						<input type="radio" id="s4" name="num" class="mySlides"/>
-						<label for="s4">4</label>
-						<a href="javascript:void(0);">
-							<img src="http://cssdeck.com/uploads/media/items/3/3oMnVPz.jpg" />
-							<span>Stay relaxed</span>
-						</a>
-					</li>
-					<li>
-						<input type="radio" id="s5" name="num" class="mySlides"/>
-						<label for="s5">5</label>
-						<a href="javascript:void(0);">
-							<img src="img/test.jpg">
-							<span>And you will forever be relaxed</span>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -603,6 +573,7 @@
 					<div class="news-head">
 						<h2>News</h2>
 					</div>
+					
 					<div class="news-option">
 						<div class="img">
 						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
@@ -613,46 +584,7 @@
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 						</div>
 					</div>
-					<div class="news-option">
-						<div class="img">
-						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
-						</div>
-						<div class="news">
-						<h2><a href="news.html">Studi Banding UPH Medan</a></h2>
-						<p style="color:#adad85;">HMFH || Date time</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-					</div>
-					<div class="news-option">
-						<div class="img">
-						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
-						</div>
-						<div class="news">
-						<h2><a href="news.html">Studi Banding UPH Medan</a></h2>
-						<p style="color:#adad85;">HMFH || Date time</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-					</div>
-					<div class="news-option">
-						<div class="img">
-						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
-						</div>
-						<div class="news">
-						<h2><a href="news.html">Studi Banding UPH Medan</a></h2>
-						<p style="color:#adad85;">HMFH || Date time</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-					</div>
-					<div class="news-option">
-						<div class="img">
-						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
-						</div>
-						<div class="news">
-						<h2><a href="news.html">Studi Banding UPH Medan</a></h2>
-						<p style="color:#adad85;">HMFH || Date time</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-					</div>
+					
 					<div class="row">
 						<!-- <div class="news-nav">
 							<input type="button" name="next" value="Next">
@@ -671,15 +603,20 @@
 						<th>Kritik dan Saran</th>
 						</tr>
 						<tr>
-						<td><input type="radio" name="ks">Kritik
-							<br><p><input type="name" name="kritik_name" placeholder="Nama Anda"><br><br><input type="text" name="kritik" placeholder="isi kritikan anda disini" >
-							<br><input type="submit" name="kritik-btn" value="Submit"></p>
-							<br>
-							<div class="radio">
-							<input type="radio" name="ks">Saran
-							<br><p><input type="name" name="saran_name" placeholder="Nama Anda"><br><br><input type="text" name="saran" placeholder="isi saran anda disini" >
-							<br><input type="submit" name="saran-btn" value="Submit"></p></td>
-							</div>
+						<td>
+							<form action="kritik.php" method="post">
+								<input type="radio" name="ks">Kritik
+								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><input type="text" name="kritik" placeholder="isi kritikan anda disini" >
+								<br><input type="submit" value="Submit"></p>
+								<br>
+							</form>
+							<form action="saran.php" method="post">
+								<div class="radio">
+								<input type="radio" name="ks">Saran
+								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><input type="text" name="saran" placeholder="isi saran anda disini" >
+								<br><input type="submit" value="Submit"></p></td>
+								</div>
+							</form>
 							</td>
 						</tr>
 						<tr>
