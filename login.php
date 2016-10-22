@@ -30,7 +30,9 @@ if($row){
 		$_SESSION['username'] = $username;
 		$_SESSION['category'] = $row->category;
 		switch($row->category){
-			case 1: $loc = "location:input-news1.php";
+			case 1: $loc = "location:admin.php";
+			break;
+			case 2: $loc = "location:input-news1.php";
 			break;
 		}
 		header($loc);

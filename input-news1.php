@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +15,7 @@ session_start();
 </style>
 </head>
 <body>
-<h2>Welcome $_SESSION['$username'];</h2>
+<h2>Welcome</h2><a href="logout.php"><button>Logout</button></a>
 <form method="post" action="input-news.php" enctype="multipart/form-data">
 <label>News Title:</label><br>
 <input type="text" name="title"><br>
@@ -54,15 +52,15 @@ $rows = $query->get_result();
 while($row = $rows->fetch_array()){
 	$url_edit = "edit-news.php?id=".$row['id'];
 	$url_delete = "delete-news.php?id=".$row['id'];
-	if($row['image'] == null || $row['image']=="")
+	if($row['image'] == null || $row['image'] == "")
 		$url_image = "img/none.png";
 	else
 		$url_image = "img/".$row['image'];
 	echo "<tr>";
-	echo "<td>". $row['id'] . "</td>";
-	echo "<td>". $row['title'] . "</td>";
-	echo "<td>". $row['date'] . "</td>";
-	echo "<td>". $row['content'] . "</td>";
+	echo '<td>'. $row['id'] . '</td>';
+	echo '<td>'. $row['title'] . '</td>';
+	echo '<td>'. $row['date'] . '</td>';
+	echo '<td>'. $row['content'] . '</td>';
 	echo "<td><img src=\"$url_image\" style=\"width:300px;height:400px;\"></td>";
 	echo "<td><a href='".$url_edit."'><button>Edit</button></a>"; 
 	echo "<a href='".$url_delete."'><button>Hapus</button></a></td>";

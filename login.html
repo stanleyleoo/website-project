@@ -2,17 +2,43 @@
 <html>
 <head>
 	<title>Login || hfuphmedan.org</title>
+<style type="text/css">
+	.wrapper{
+		margin: auto;
+		width: 500px;
+		text-align: center;
+		margin-top: 200px;
+		padding-bottom: 30px;
+		border:2px solid gray;
+		border-radius: 10%;
+	}
+	table{
+		margin:auto;
+		margin-top: -20px;
+	}
+	th{
+		width: 100px;
+		height: 35px;
+	}
+</style>
 </head>
 <body>
+<div class="wrapper">
 
-<h2>Login</h2>
-<form method="post" action="login.php">
-<label>Username: <input type="text" name="username"></label><br>
-<p><label>Password: <input type="Password" name="password"></label></p>
-<label><input type="Submit" value="Login"></label>
-
-
-
-</form>
+	<form method="post" action="login.php">
+		<table>	
+			<tr><th colspan="2" style="font-family: 'Times New Roman';"><h2>Login</h2></th></tr>
+			<tr>
+			<th><label>Username:</th><td><input type="text" name="username"></td></label><br>
+			</tr>
+			<tr>
+			<th><label>Password:</th><td><input type="Password" name="password"></td></label>
+			</tr>
+			<tr>
+			<td colspan="2"><label><input type="Submit" value="Login"></td></label>
+			</tr>
+		</table>
+	</form>
+</div>
 </body>
 </html>
