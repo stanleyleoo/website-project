@@ -27,15 +27,16 @@ session_start();
 	<tr><th><label>Password</label><td>:</td></th><td><input type="password" name="password"></td></tr>	<br>
 	<tr><th><label>Category</label><td>:</td></th><td>
 		<select name="category">
-			<option name="2">News</option>
-			<option name="3">Tentang</option>
-			<option name="4">UKM</option>
-			<option name="5">Kegiatan</option>
-			<option name="6">Undang-undang</option>
+			<option value="2">News</option>
+			<option value="3">Tentang</option>
+			<option value="4">UKM</option>
+			<option value="5">Kegiatan</option>
+			<option value="6">Undang-undang</option>
 		</select></td></tr>	
 	<br>
 	<tr><th></th><th colspan="2"><input type="submit" value="Submit"></th></tr>
 </table>
+</form>
 <br>
 <?php
 require_once "db.php";
@@ -75,7 +76,7 @@ while ($row = $rows->fetch_array()){
 	echo "</tr>";
 }
 ?>
-</form>
+
 </div>
 </body>
 </html>
