@@ -1,6 +1,6 @@
 <?php
 $DB = array('host'    =>'localhost',
             'user'    =>'root',
-            'password'=>'',
+            'password'=>'abc',
             'db'      =>'website');
 ?>
