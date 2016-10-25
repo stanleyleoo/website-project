@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 </style>
 </head>
 <body>
-<h2>Welcome</h2><a href="logout.php"><button>Logout</button></a>
+<h2>Welcome<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
 <form method="post" action="input-news.php" enctype="multipart/form-data">
 <label>News Title:</label><br>
 <input type="text" name="title"><br>
@@ -33,10 +35,12 @@ require_once "db.php";
 
 $conn = konek_db();
 $query = $conn->prepare("select * from news");
+
 $result= $query->execute();
 
+
 if(!$result)
-	die("gagal koneksi ke db");
+	echo "Gagal Koneksi";
 
 $rows = $query->get_result();
 
@@ -49,7 +53,8 @@ $rows = $query->get_result();
 	<th>Content</th>
 	<th>Image</th>
 <?php
-while($row = $rows->fetch_array()){
+die(var_export($rows,true));
+while($row = $rows->fetch_assoc()){
 	$url_edit = "edit-news.php?id=".$row['id'];
 	$url_delete = "delete-news.php?id=".$row['id'];
 	if($row['image'] == null || $row['image'] == "")
