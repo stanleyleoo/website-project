@@ -11,13 +11,13 @@ require_once 'db.php';
 
 $conn = konek_db();
 
-if(!isset($_GET['id']))
-	die("Tidak ditemukan produk");
+if(!isset($_GET['username']))
+	die("Tidak ditemukan username");
 
-$id =$_GET['id'];
+$username =$_GET['username'];
 
-$query = $conn->prepare("select * from user where id=?");
-$query->bind_param('i',$id);
+$query = $conn->prepare("select * from user where username=?");
+$query->bind_param('s',$username);
 $result = $query->execute();
 
 if(!$result)
@@ -26,8 +26,8 @@ $rows = $query->get_result();
 if($rows->num_rows == 0)
 	die("user tidak detemukan");
 
-$query = $conn->prepare("delete from user where id=?");
-$query->bind_param('i',$id);
+$query = $conn->prepare("delete from user where username=?");
+$query->bind_param('s',$username);
 $result=$query->execute();
 
 if($result)

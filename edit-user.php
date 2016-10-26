@@ -12,14 +12,14 @@
 <?php
 require_once 'db.php';
 //get data yang akan di edit/update
-if (!isset($_GET['id']))
+if (!isset($_GET['username']))
 	die('Informasi user tidak ditemukan');
 $conn = konek_db();
 
 //cari data yang akan diupdate
-$id = $_GET['id'];
-$query = $conn->prepare("select * from user where id=?");
-$query->bind_param("i",$id);
+$username = $_GET['username'];
+$query = $conn->prepare("select * from user where username=?");
+$query->bind_param("s",$username);
 $result = $query->execute();
 
 if(!$result)
@@ -32,17 +32,17 @@ die("<p>Informasi user tidak ditemukan</p>");
 $data = $rows->fetch_object();
 ?>
 
-<form method="post" action="update-user.php?id=<?php echo $data->id;?>">
+<form method="post" action="update-user.php?username=<?php echo $data->username;?>">
 <div>
-	<label>ID</label>
-	<p><?php echo $data->id;?></p>
+	<label>Username</label>
+	<p><?php echo $data->username;?></p>
 </div>
 <table>
 	<tr><th><label>Name</label><td>:</td></th><td><input type="text" name="name" value="<?php echo "$data->name"?>"></td></tr><br>
-	<tr><th><label>Username</label><td>:</td></th><td><input type="text" name="username" value="<?php echo "$data->username"?>"></td></tr>	<br>
 	<tr><th><label>Password</label><td>:</td></th><td><input type="password" name="password" value="<?php echo "$data->password"?>"></td></tr>	<br>
 	<tr><th><label>Category</label><td>:</td></th><td>
 		<select name="category">
+			<option value="1">Admin</option>
 			<option value="2">News</option>
 			<option value="3">Tentang</option>
 			<option value="4">UKM</option>

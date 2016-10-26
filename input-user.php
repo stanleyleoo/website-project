@@ -22,10 +22,10 @@ if(isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password'
     $query->bind_param("ssss",$name,$username,$password,$category);
     $result = $query->execute();
     if(!$result){
-      die ("Data News tidak berhasil diisi");
+      die ("Data User tidak berhasil diisi");
       echo "<a href=\"admin.php\">Back to Admin page</a>";
     } else{
-      echo "Data news berhasil diisi<br>";
+      echo "Data User berhasil diisi<br>";
       echo "<a href=\"admin.php\"><button>Back to Admin</button></a>";
     }
 } else 

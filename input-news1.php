@@ -1,5 +1,14 @@
 <?php
 session_start();
+if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
+	
+	header("location: login.html");
+}else {
+	if ($_SESSION['category'] != 2) {
+		session_destroy();
+		header("location: login.html");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +26,7 @@ session_start();
 </style>
 </head>
 <body>
-<h2>Welcome<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
+<h2>Welcome,&nbsp<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
 <form method="post" action="input-news.php" enctype="multipart/form-data">
 <label>News Title:</label><br>
 <input type="text" name="title"><br>
@@ -34,16 +43,14 @@ session_start();
 require_once "db.php";
 
 $conn = konek_db();
-$query = $conn->prepare("select * from news");
+$query = $conn->prepare("select * from `website`.`news`");
 
 $result= $query->execute();
-
 
 if(!$result)
 	echo "Gagal Koneksi";
 
 $rows = $query->get_result();
-
 ?>
 <br>
 <table>
@@ -53,8 +60,8 @@ $rows = $query->get_result();
 	<th>Content</th>
 	<th>Image</th>
 <?php
-die(var_export($rows,true));
-while($row = $rows->fetch_assoc()){
+
+while($row = $rows->fetch_array()){
 	$url_edit = "edit-news.php?id=".$row['id'];
 	$url_delete = "delete-news.php?id=".$row['id'];
 	if($row['image'] == null || $row['image'] == "")
@@ -66,7 +73,7 @@ while($row = $rows->fetch_assoc()){
 	echo '<td>'. $row['title'] . '</td>';
 	echo '<td>'. $row['date'] . '</td>';
 	echo '<td>'. $row['content'] . '</td>';
-	echo "<td><img src=\"$url_image\" style=\"width:300px;height:400px;\"></td>";
+	echo "<td><img src=\"$url_image\" style=\"width:500px;height:400px;\"></td>";
 	echo "<td><a href='".$url_edit."'><button>Edit</button></a>"; 
 	echo "<a href='".$url_delete."'><button>Hapus</button></a></td>";
 	echo "</tr>";

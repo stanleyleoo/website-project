@@ -1,11 +1,34 @@
 <?php
 session_start();
+if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
+	
+	header("location: login.html");
+}else {
+	if ($_SESSION['category'] != 1) {
+		session_destroy();
+		header("location: login.html");
+	}
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Admin Page || fhuphmedan.com</title>
 <style type="text/css">
+	.table table{
+		border-collapse: collapse;
+	}
+	.table td{
+		border:1px solid black;
+		text-align: center;
+	}
+	.table th{
+		border:1px solid black;
+		text-align: center;
+	}
+	.table th{
+		border:1px solid black;
+	}
 	th{
 		text-align: left;
 		width: 100px;
@@ -18,7 +41,7 @@ session_start();
 </head>
 <body>
 
-<h2>Welcome,<?php echo "$name"?></h2><a href="logout.php"><button>Logout</button></a>
+<h2>Welcome,&nbsp<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
 <div class="wrapper">
 <form method="post" action="input-user.php">
 <table>
@@ -27,6 +50,7 @@ session_start();
 	<tr><th><label>Password</label><td>:</td></th><td><input type="password" name="password"></td></tr>	<br>
 	<tr><th><label>Category</label><td>:</td></th><td>
 		<select name="category">
+			<option value="1">Admin</option>
 			<option value="2">News</option>
 			<option value="3">Tentang</option>
 			<option value="4">UKM</option>
@@ -52,9 +76,9 @@ if(!$result)
 //tarik data ke result set
 $rows = $query->get_result();
 ?>
-<table style="border:1px solid black;">
+<div class="table">
+<table>
 	<tr>
-		<th>ID</th>
 		<th>Nama</th>
 		<th>Username</th>
 		<th>Password</th>
@@ -63,10 +87,9 @@ $rows = $query->get_result();
 	</tr>
 <?php
 while ($row = $rows->fetch_array()){
-	$url_edit = "edit-user.php?id=".$row['id'];
-	$url_delete = "delete-user.php?id=".$row['id'];
+	$url_edit = "edit-user.php?username=".$row['username'];
+	$url_delete = "delete-user.php?username=".$row['username'];
 	echo '<tr>';
-	echo '<td>'.$row['id'].'</td>';
 	echo '<td>'.$row['name'].'</td>';
 	echo '<td>'.$row['username'].'</td>';
 	echo "<td>".$row['password']."</td>";
@@ -76,6 +99,8 @@ while ($row = $rows->fetch_array()){
 	echo "</tr>";
 }
 ?>
+</table>
+</div>
 
 </div>
 </body>
