@@ -144,6 +144,8 @@
 		width: 400px;
 		height: 200px;
 		float:right;
+		overflow: hidden;
+
 	}
 	.news-option .news h2{
 		margin-top:12px;
@@ -158,6 +160,7 @@
 	.news-option .news p{
 		margin-top:-10px;
 		font-family: "Times new Roman";
+
 	}
 	.center .news-nav{
 		width: 600px;
@@ -485,6 +488,8 @@
 	</script>
 </head>
 <body>
+		
+		
 <div class="wrapper">
 	<div class="body">
 		<div class="row">
@@ -501,42 +506,17 @@
 		<div class="row">
 			<div class="menu">
 				<ul>
-				  <li class="current-menu-item"><a href="hmj.html">Home</a></li>
-				  <li><a href="tentang.html">Tentang HMFH</a></li>
-				  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
-				  <li><a href="Kegiatan.html">Kegiatan</a></li>
-				  <li><a href="glosarium.html">Glosarium</a>
-					  <ul>
-					      <li class="dir"><a href="#">Sub Menu 1</a>
-					      	<ul>
-					          <li><a href="#">Category 1</a></li>
-					          <li><a href="#">Category 2</a></li>
-					          <li><a href="#">Category 3</a></li>
-					          <li><a href="#">Category 4</a></li>
-					          <li><a href="#">Category 5</a></li>
-					        </ul>
-					      </li>
-					      <li class="dir"><a href="#">Sub Menu 2</a>
-					        <ul>
-					          <li><a href="#">Category 1</a></li>
-					          <li><a href="#">Category 2</a></li>
-					          <li><a href="#">Category 3</a></li>
-					          <li><a href="#">Category 4</a></li>
-					          <li><a href="#">Category 5</a></li>
-					        </ul>
-					      </li>
-					      <li><a href="#">Sub Menu 3</a></li>
-					      <li><a href="#">Sub Menu 4</a></li>
-					      <li><a href="#">Sub Menu 5</a></li>
-				    </ul>
-				  </li>
+				  <li class="current-menu-item"><a href="hmj.php">Home</a></li>
+				  <li><a href="tentang.php">Tentang HMFH</a></li>
+				  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
+				  <li><a href="Kegiatan.php">Kegiatan</a></li>
+				  <li><a href="glosarium.php">Glosarium</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="row">
 			<div class="slider-bg">
 				<ul id="css3-slider">
-
 					<li >
 						<input type="radio" id="s1" name="num" checked="true" class="mySlides"/>
 						<label for="s1">1</label>
@@ -545,7 +525,6 @@
 							<span>Studi Banding HMFH Medan</span>
 						</a>
 					</li>
-					
 				</ul>
 			</div>
 		</div>
@@ -556,14 +535,31 @@
 						<tr>
 						<th>Latest News</th>
 						</tr>
-						<tr>
-						<td><a href="news.html"><img src="img/photo.jpg" style="margin-top:10px" width="200" height="144"><br>
-						Studi Banding HMFH Medan</a></td>
-						</tr>
-						<tr>
-						<td><a href=""><img src="img/test.jpg" style="margin-top:10px" width="200" height="144"><br>
-						Penerimaan Anggota baru</a></td>
-						</tr>
+					<?php
+					require_once "db.php";
+
+					$conn = konek_db();
+					$query = $conn->prepare("select * from `website`.`news` LIMIT 2");
+
+					$result= $query->execute();
+
+					if(!$result)
+						echo "Gagal Koneksi";
+
+					$rows = $query->get_result();
+					while($row = $rows->fetch_array()){
+					if($row['image'] == null || $row['image'] == "")
+						$url_image = "img/none.png";
+					else
+						$url_image = "img/".$row['image'];
+
+					echo "<tr>";
+					echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+					$row['title']."</a></td>";
+					echo"</tr>";
+				}
+					?>
+
 					</table>
 					<div class="advertise">
 					<img src="img/ad.jpg">
@@ -573,8 +569,37 @@
 					<div class="news-head">
 						<h2>News</h2>
 					</div>
-					
-					<div class="news-option">
+					<?php
+					require_once "db.php";
+
+					$conn = konek_db();
+					$query = $conn->prepare("select * from `website`.`news`");
+
+					$result= $query->execute();
+
+					if(!$result)
+						echo "Gagal Koneksi";
+
+					$rows = $query->get_result();
+					while($row = $rows->fetch_array()){
+									if($row['image'] == null || $row['image'] == "")
+										$url_image = "img/none.png";
+									else
+										$url_image = "img/".$row['image'];
+						$date = date_create($row['date']);
+						echo "<div class=\"news-option\">";
+						echo "<div class=\"img\">";
+						echo "<a href=\"news.html\"><img src=\"$url_image\" width=\"150\"></a></div>";
+						echo "<div class=\"news\"><h2><a href=\"news.html\">".$row['title']."</a></h2>";
+						echo "<p style=\"color:#adad85;\">".date_format($date,"d F Y")."</p>";
+						echo "<p>" . $row['content']."</p>";
+						echo "</div></div>";
+					}
+
+
+
+					?>
+					<!-- <div class="news-option">
 						<div class="img">
 						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
 						</div>
@@ -583,7 +608,7 @@
 						<p style="color:#adad85;">HMFH || Date time</p>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 						</div>
-					</div>
+					</div> -->
 					
 					<div class="row">
 						<!-- <div class="news-nav">
