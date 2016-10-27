@@ -39,7 +39,7 @@ $query->bind_param('ssss',$name,$password,$category,$username);
 $result=$query->execute();
 
 if($result)
-echo "<p>Data user berhasil di update</p>";
+header("Location:admin.php");
 else
 echo "<p>Gagl mengupdate user</p>";
 

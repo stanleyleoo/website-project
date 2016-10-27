@@ -29,14 +29,14 @@ if(isset($_POST['title']) && isset($_POST['date']) && isset($_POST['content'])){
         }
     }
     $query = $conn->prepare("insert into news(title,date,content,image) value(?,?,?,?)");
-    $query->bind_param("siss",$title,$date,$content,$file_gambar);
+    $query->bind_param("ssss",$title,$date,$content,$file_gambar);
     $result = $query->execute();
     if(!$result){
       die ("Data News tidak berhasil diisi");
       echo "<a href=\"input-news1.php\">Back to input page</a>";
     } else{
       echo "Data news berhasil diisi<br>";
-      echo "<a href=\"input-news1.php\"><button>Back to input page</button></a>";
+      header("Location: input-news1.php");
     }
 } else 
   die("Koneksi gagal");

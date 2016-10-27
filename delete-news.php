@@ -40,7 +40,7 @@ $query->bind_param('i',$id);
 $result=$query->execute();
 
 if($result)
-echo "<p>News berhasil di delete</p>";
+header("Location:input-news1.php");
 else
 echo "<p>Gagl mendelete News</p>";
 

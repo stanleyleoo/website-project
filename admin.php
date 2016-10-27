@@ -34,15 +34,23 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 		width: 100px;
 		height: 30px;
 	}
+	.wrapper1{
+		background-color: #f5f5f0;
+		background-size: cover;
+		min-height: 790px;
+		margin-top: -20px;
+	}
 	.wrapper{
 		margin-left: 50px;
+		padding-top: 50px;
 	}
 </style>
 </head>
 <body>
-
-<h2>Welcome,&nbsp<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
+<div class="wrapper1">
 <div class="wrapper">
+<h2>Welcome,&nbsp<?php echo $_SESSION['username'];?></h2><a href="logout.php"><button>Logout</button></a>
+
 <form method="post" action="input-user.php">
 <table>
 	<tr><th><label>Name</label><td>:</td></th><td><input type="text" name="name"></td></tr><br>
@@ -102,6 +110,7 @@ while ($row = $rows->fetch_array()){
 </table>
 </div>
 
+</div>
 </div>
 </body>
 </html>

@@ -25,8 +25,7 @@ if(isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password'
       die ("Data User tidak berhasil diisi");
       echo "<a href=\"admin.php\">Back to Admin page</a>";
     } else{
-      echo "Data User berhasil diisi<br>";
-      echo "<a href=\"admin.php\"><button>Back to Admin</button></a>";
+      header("Location:admin.php");
     }
 } else 
   die("Koneksi gagal");

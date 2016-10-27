@@ -3,12 +3,21 @@
 <head>
 	<title>Edit News</title>
 <style type="text/css">
+	.wrapper{
+		background-color: #f5f5f0;
+		width: 100%;
+		min-height: 750px;
+		padding-left: 50px;
+		padding-top: 20px;
+		margin-top: -10px;
+	}
 	table{
 		text-align: left;
 	}
 </style>
 </head>
 <body>
+<div class="wrapper">
 <?php
 require_once 'db.php';
 //get data yang akan di edit/update
@@ -34,8 +43,8 @@ $data = $rows->fetch_object();
 
 <form method="post" action="update-user.php?username=<?php echo $data->username;?>">
 <div>
-	<label>Username</label>
-	<p><?php echo $data->username;?></p>
+	<h2>Username:
+	&nbsp<?php echo $data->username;?></h2>
 </div>
 <table>
 	<tr><th><label>Name</label><td>:</td></th><td><input type="text" name="name" value="<?php echo "$data->name"?>"></td></tr><br>
@@ -54,5 +63,6 @@ $data = $rows->fetch_object();
 </table>
 </form>
 <a href="admin.php"><button>Back to Admin</button></a>
+</div>
 </body>
 </html>

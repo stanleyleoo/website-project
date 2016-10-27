@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
+    
+    header("location: login.html");
+}else {
+    if ($_SESSION['category'] != 2) {
+        session_destroy();
+        header("location: login.html");
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +24,7 @@ require_once 'db.php';
 $conn = konek_db();
 
 if(!isset($_GET['id']))
-	die("Tidak ditemukan produk");
+	die("Tidak ditemukan news");
 
 $id =$_GET['id'];
 
@@ -60,13 +72,14 @@ $file_gambar='';
 
 
 $query = $conn->prepare("update news set title=?,date=?,content=?,image=? where id=?");
-$query->bind_param('sissi',$title,$date,$content,$file_gambar,$id);
+$query->bind_param('ssssi',$title,$date,$content,$file_gambar,$id);
 $result=$query->execute();
 
+
 if($result)
-echo "<p>Data news berhasil di update</p>";
+header("Location:input-news1.php");
 else
-echo "<p>Gagl mengupdate news</p>";
+echo "<p>Gagal mengupdate news</p>";
 
 ?>
 <a href="input-news1.php"><button>Back to Input News</button></a>

@@ -28,7 +28,8 @@ else {
 		die("Gagal koneksi ke database");
 
 		if($password != null || $password != ''){
-			if($passdb = $password){
+			echo "$passdb = $password";
+			if($passdb == $password){
 				$_SESSION['username'] = $username;
 				$_SESSION['category'] = $category;
 				switch ($category) {
@@ -52,6 +53,8 @@ else {
 						break;					
 				}
 				// require_once "access.php";
+			}else {
+				header("Location:login.php");
 			}
 		
 

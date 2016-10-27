@@ -31,7 +31,7 @@ $query->bind_param('s',$username);
 $result=$query->execute();
 
 if($result)
-echo "<p>user berhasil di delete</p>";
+header("Location:admin.php");
 else
 echo "<p>Gagl mendelete user</p>";
 

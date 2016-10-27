@@ -539,7 +539,7 @@
 					require_once "db.php";
 
 					$conn = konek_db();
-					$query = $conn->prepare("select * from `website`.`news` LIMIT 2");
+					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
 
 					$result= $query->execute();
 
@@ -573,7 +573,7 @@
 					require_once "db.php";
 
 					$conn = konek_db();
-					$query = $conn->prepare("select * from `website`.`news`");
+					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC");
 
 					$result= $query->execute();
 
