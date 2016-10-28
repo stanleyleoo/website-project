@@ -49,7 +49,7 @@ else {
 						header("Location:input-ukm.php");
 						break;
 					case 6:
-						header("Location:input-glosarium.php");
+						header("Location:input-uu.php");
 						break;					
 				}
 				// require_once "access.php";

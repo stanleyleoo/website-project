@@ -320,11 +320,11 @@
 		<div class="row">
 			<div class="menu">
 						<ul>
-						  <li><a href="hmj.html">Home</a></li>
-						  <li  class="current-menu-item"><a href="tentang.html">Tentang HMFH</a></li>
-						  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
-						  <li><a href="Kegiatan.html">Kegiatan</a></li>
-						  <li><a href="glosarium.html">Glosarium</a>
+						  <li><a href="hmj.php">Home</a></li>
+						  <li  class="current-menu-item"><a href="tentang.php">Tentang HMFH</a></li>
+						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
+						  <li><a href="Kegiatan.php">Kegiatan</a></li>
+						  <li><a href="glosarium.php">Glosarium</a>
 							  <!-- <ul>
 							      <li class="dir"><a href="#">Sub Menu 1</a>
 							      	<ul>

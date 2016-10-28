@@ -266,35 +266,11 @@
 				<div class="row">
 					<div class="menu">
 						<ul>
-						  <li><a href="hmj.html">Home</a></li>
-						  <li><a href="tentang.html">Tentang HMFH</a></li>
-						  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
-						  <li><a href="Kegiatan.html">Kegiatan</a></li>
-						  <li  class="current-menu-item"><a href="glosarium.html">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
-						  </li>
+						  <li><a href="hmj.php">Home</a></li>
+						  <li><a href="tentang.php">Tentang HMFH</a></li>
+						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
+						  <li><a href="Kegiatan.php">Kegiatan</a></li>
+						  <li  class="current-menu-item"><a href="glosarium.php">Glosarium</a></li>
 						</ul>
 			</div>
 				</div>
@@ -304,80 +280,51 @@
 								<div class="head">
 								<h2>Undang Undang</h2>
 								</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="Kitab Undang-Undang Hukum Dagang.html"><h2>Kitab Undang-Undang Hukum Dagang</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UUDasar 1945.html"><h2>UU Dasar 1945</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="Peraturan Pemerintah No. 78 Tahun 2015 tentang Pengupahan.html"><h2>Peraturan Pemerintah No. 78 tentang Pengupahan</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU No. 13 Tahun 2003 tentang Ketenagakerjaan.html"><h2>UU No. 13 Tahun 2003 tentang Ketenagakerjaan</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU No. 2 Tahun 2011 tentang perubahan atas UU. No. 2 Tahun 2008 tentang Partai Politik.html"><h2>UU No. 2 Tahun 2011 tentang Partai Politik</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU No. 1 Tahun 2009 tentang Penerbangan.html"><h2>UU No. 1 Tahun 2009 tentang Penerbangan</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="Herizen Inlandsch Reglement (H.I.R.).html"><h2>Herizen Inlandsch Reglement (H.I.R.)</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="Reglement Tot Regeling Van Het Rechtswezen In De Gewetsen Buiten Java En Madura (RBG).html"><h2>Reglement Tot Regeling Van Het Rechtswezen In De Gewetsen Buiten Java En Madura (RBG)</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU No. 3 Tahun 2009 tentang Perubahan Kedua atas UU No. 14 Tahun 1985 tentang Mahkamah Agung.html"><h2>UU No. 3 Tahun 2009 tentang Perubahan Kedua atas UU No. 14 Tahun 1985 tentang Mahkamah Agung</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU No. 48 Tahun 2009 Tentang Kekuasaan Kehakiman.html"><h2>UU No. 48 Tahun 2009 Tentang Kekuasaan Kehakiman</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="Kitab Undang-Undang Hukum Perdata.html"><h2>Kitab Undang-Undang Hukum Perdata</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
-									<div class="undang-undang">
-									<a href="UU Arbitrase.html"><h2>Arbitrase dan Alternatif Penyelesaian Sengketa</h2></a>
-									</div>
+								<?php
+								require_once "db.php";
+								$conn = konek_db();
+								$query = $conn->prepare("select * from `website`.`uu` ORDER BY id ASC");
+								$result= $query->execute();
+								if(!$result)
+									die("Gagal Koneksi");
+								$rows = $query->get_result();
+								while ($row = $rows->fetch_array()) {
+									echo"<div class=\"undang-undang\">";
+									echo "<a href=\"".$row['nama'].".html\"><h2>".$row['nama']."</h2></a>";
+									echo "</div>";
+								}
+									
+								?>
 							</div>
 							<div class="right">
 								<table>
 									<tr>
 									<th>Latest News</th>
 									</tr>
-									<tr>
-									<td><a href="news.html"><img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" style="margin-top:10px" width="200" height="144"><br>
-									MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</a></td>
-									</tr>
-									<tr>
-									<td><a href="news2.html"><img src="img/studibanding.jpg" style="margin-top:10px" width="200" height="144"><br>
-									STUDI BANDING FH UPH MEDAN</a></td>
-									</tr>
+									<?php
+									require_once "db.php";
+
+									$conn = konek_db();
+									$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
+
+									$result= $query->execute();
+
+									if(!$result)
+										echo "Gagal Koneksi";
+
+									$rows = $query->get_result();
+									while($row = $rows->fetch_array()){
+									if($row['image'] == null || $row['image'] == "")
+										$url_image = "img/none.png";
+									else
+										$url_image = "img/".$row['image'];
+
+									echo "<tr>";
+									echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+									$row['title']."</a></td>";
+									echo"</tr>";
+									}
+									?>
 								</table>
 								<div class="advertise">
 									<img src="img/ad.jpg">

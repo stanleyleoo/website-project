@@ -28,7 +28,7 @@ if(isset($_POST['title']) && isset($_POST['date']) && isset($_POST['content'])){
             copy($image['tmp_name'], 'img/' . $file_gambar);
         }
     }
-    $query = $conn->prepare("insert into news(title,date,content,image) value(?,?,?,?)");
+    $query = $conn->prepare("insert into news(title,date,content,image) values(?,?,?,?)");
     $query->bind_param("ssss",$title,$date,$content,$file_gambar);
     $result = $query->execute();
     if(!$result){
