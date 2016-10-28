@@ -43,10 +43,10 @@ else {
 						header("Location:input-tentang.php");
 						break;
 					case 4:
-						header("Location:input-kegiatan.php");
+						header("Location:input-ukm.php");
 						break;
 					case 5:
-						header("Location:input-ukm.php");
+						header("Location:input-kegiatan.php");
 						break;
 					case 6:
 						header("Location:input-uu.php");

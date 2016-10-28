@@ -9,14 +9,14 @@ session_start();
 <body>
 <?php
 require_once "db.php";
-if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['leader']) && isset($_POST['location']) && isset($_POST['time']) && isset($_POST['description']) && isset($_POST['join'])){
+if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['leader']) && isset($_POST['location']) && isset($_POST['time']) && isset($_POST['description']) && isset($_POST['howtojoin'])){
   $title = $_POST['title'];
   $faculty = $_POST['faculty'];
   $leader = $_POST['leader'];
   $location = $_POST['location'];
   $time = $_POST['time'];
   $description = $_POST['description'];
-  $join = $_POST['join'];
+  $join = $_POST['howtojoin'];
 
 
   $conn = konek_db();
@@ -32,15 +32,14 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['leader'])
             copy($image['tmp_name'], 'img/' . $file_gambar);
         }
     }
-    $query = $conn->prepare("insert into ukm(title,faculty,leader,location,time,description,join,logo) values (?,?,?,?,?,?,?,?)");
+    $query = $conn->prepare("INSERT ukm(title,faculty,leader,location,time,description,howtojoin,logo) VALUES(?,?,?,?,?,?,?,?)");
     $query->bind_param("ssssssss",$title,$faculty,$leader,$location,$time,$description,$join,$file_gambar);
     $result = $query->execute();
     if(!$result){
       echo "<a href=\"input-ukm.php\"><button>Back to input page</button></a>";
       die ("Data UKM tidak berhasil diisi");
     } else{
-      echo "Data news berhasil diisi<br>";
-      echo "<a href=\"input-ukm.php\"><button>Back to input page</button></a>";
+      header("Location:input-ukm.php");
     }
 } else 
   die("Data Tidak Lengkap");

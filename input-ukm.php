@@ -4,7 +4,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 	
 	header("location: login.html");
 }else {
-	if ($_SESSION['category'] != 5) {
+	if ($_SESSION['category'] != 4) {
 		session_destroy();
 		header("location: login.html");
 	}
@@ -13,7 +13,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Input news</title>
+	<title>Input UKM</title>
 <style>
 	body{
 		background-color: #f5f5f0;
@@ -24,7 +24,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 		text-align: center;
 	}
 	th,td{
-		max-width: 600px;
+		max-width: 300px;
 	}
 	th{
 		color:white;
@@ -54,7 +54,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			<label>Description:</label><br>
 			<textarea rows="20" cols="50" name="description"></textarea><br>
 			<label>How to Join:</label><br>
-			<textarea rows="10" cols="50" name="join"></textarea><br>
+			<textarea rows="10" cols="50" name="howtojoin"></textarea><br>
 			<label>Logo :</label>
 			<input type="file" name="image"><br>
 			<input type="submit" value="Submit">
@@ -81,17 +81,17 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			<th>Location</th>
 			<th>Time</th>
 			<th>Description</th>
-			<th>Join</th>
+			<th>How to Join</th>
 			<th>Logo</th>
 		<?php
 
 		while($row = $rows->fetch_array()){
 			$url_edit = "edit-ukm.php?id=".$row['id'];
 			$url_delete = "delete-ukm.php?id=".$row['id'];
-			if($row['image'] == null || $row['image'] == "")
+			if($row['logo'] == null || $row['logo'] == "")
 				$url_image = "img/none.png";
 			else
-				$url_image = "img/".$row['image'];
+				$url_image = "img/".$row['logo'];
 			echo "<tr>";
 			echo '<td>'. $row['id'] . '</td>';
 			echo '<td>'. $row['title'] . '</td>';
@@ -100,8 +100,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			echo '<td>'. $row['location'] . '</td>';
 			echo '<td>'. $row['time'] . '</td>';
 			echo '<td>'. $row['description'] . '</td>';
-			echo '<td>'. $row['join'] . '</td>';
-			echo "<td><img src=\"$url_image\" style=\"width:100px;height:300px;\"></td>";
+			echo '<td>'. $row['howtojoin'] . '</td>';
+			echo "<td><img src=\"$url_image\" style=\"max-width:300px;max-height:300px;\"></td>";
 			echo "<td><a href='".$url_edit."'><button>Edit</button></a>"; 
 			echo "<a href='".$url_delete."'><button>Hapus</button></a></td>";
 			echo "</tr>";
