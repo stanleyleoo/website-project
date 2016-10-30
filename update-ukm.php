@@ -83,7 +83,7 @@ $result=$query->execute();
 if($result)
 header("Location:input-ukm.php");
 else
-echo "<p>Gagal mengupdate news</p>";
+echo "<p>Gagal mengupdate ukm</p>";
 
 ?>
 <a href="input-ukm.php"><button>Back to Input ukm</button></a>

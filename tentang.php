@@ -1,3 +1,24 @@
+<?php
+require_once "db.php";
+$conn = konek_db();
+$query = $conn->prepare("select * from tentang where id=1");
+$result= $query->execute();
+if(!$result)
+	die('Gagal koneksi ke db');
+
+$row = $query->get_result();
+while($rows = $row->fetch_array()){
+	if($rows['cover'] == null || $rows['cover'] == "")
+				echo "no Image";
+			else
+				$url_cover = "img/cover.jpg";
+	if($rows['struktur'] == null || $rows['struktur'] == "")
+				echo "no Image";
+			else
+				$url_struktur = "img/struktur.jpg";
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +92,7 @@
 		margin-top: -1px;
 	}
 	.image{
-		background-image: url();
+		background-image: url(<?php echo $url_cover;?>);
 		height: 600px;
 		width: 1200px;
 		max-height: 1500px;
@@ -256,7 +277,7 @@
 		}
 		.visi{
 			width: 50%;
-			max-height: 500px;
+			max-height: 1000px;
 			float: left;
 			background-color: #e0ebeb;
 		}
@@ -273,7 +294,7 @@
 		}
 		.misi{
 			width: 50%;
-			max-height: 500px;
+			max-height: 1000px;
 			float: left;
 			background-color: #e0ebeb;
 		}
@@ -320,35 +341,11 @@
 		<div class="row">
 			<div class="menu">
 						<ul>
-						  <li><a href="hmj.php">Home</a></li>
-						  <li  class="current-menu-item"><a href="tentang.php">Tentang HMFH</a></li>
-						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
-						  <li><a href="Kegiatan.php">Kegiatan</a></li>
-						  <li><a href="glosarium.php">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
-						  </li>
+						  <li><a href="hmj.html">Home</a></li>
+						  <li  class="current-menu-item"><a href="tentang.html">Tentang HMFH</a></li>
+						  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
+						  <li><a href="Kegiatan.html">Kegiatan</a></li>
+						  <li><a href="glosarium.html">Glosarium</a></li>
 						</ul>
 			</div>
 				</div>
@@ -368,10 +365,7 @@
 						<p>Visi</p>
 						</div>
 						<div class="visi-body">
-						<p>Mengembangkan sumber daya manusia yang beriman dan bertaqwa
-					kepada Tuhan Yang Maha ESA dan berbudi pekerti luhur, Memiliki pengetahuan dan
-					keterampilan,   kesehatan   jasmani   dan   rohani   yang   mantap   dan   mandiri   serta   rasa
-					tanggung jawab kemasyarakatan dan kebangsaan.</p>
+						<?php echo "<p>".$rows['visi']."</p>";?>
 						</div>
 					</div>
 					<div class="misi">
@@ -380,13 +374,7 @@
 						</div>
 						<div class="misi-body">
 						<p>
-						<ol>
-							<li>Membangun organisasi jurusan yang berorientasi akademik dengan pengembangan diri yang optimal.</li>
-							<li>Membangun organisasi jurusan dengan dilatarbelakangi oleh pola pengkaderan yang jelas dan berkesinambungan.</li>
-							<li>Memberikan pelayanan kemahasiswaan yang baik.</li>
-							<li>Mengadakan pelatihan-pelatihan praktik kemahiran di dalam bidang hukum, politik, social dan ekonomi untuk membentuk mahasiswa jurusan yang yang berkualitas.</li>
-							<li>Membangun hubungan dan kerja-sama yang baik dengan pihak birokrasi.</li>
-						</ol>
+						<?php echo $rows['misi'];?>
 						</p>
 						</div>
 					</div>
@@ -398,7 +386,7 @@
 				</div>
 				<div class="row">
 					<div class="about">
-						<p>Himpunan Mahasiswa Fakultas Hukum, adalah lembaga kemahasiswaan di lingkungan Universitas Pelita Harapan Medan yang diselenggarakan, oleh, dan untuk mahasiswa di bawah bimbingan dan arahan Dekan guna melaksanakan kegiatan ekstra-kurikuler di bidang pemberdayaan mahasiswa, informasi dan komunikasi, bakat, minat dan  sosial kemasyarakatan khususnya Fakultas Hukum. HMFH UPH Medan disahkan pada tanggal 2 April 2016. Himpunan Mahasiswa Fakultas Hukum Universitas Pelita Harapan Medan berasaskan Pancasila dan berlandaskan UUD 1945. Membentuk manusia yang bertaqwa kepada Tuhan Yang Maha Esa, berwawasan luas dan ilmiah, cendekia, memiliki integritas kepribadian, kepedulian sosial dan keadilan. HMFH ini bertujuan untuk mencapai tujuan pengabdian kepada Masyarakat dan Negara.</p>
+						<p><?php echo $rows['deskripsi'];?></p>
 					</div>
 					<div class="about-head">
 						<p>Daftar Anggota</p>
@@ -406,90 +394,7 @@
 				<div class="row">
 					<div class="wrapper-team">
 						<div class="team">
-							<div class="member">
-								<img src="img/anggota/budiman.jpg">
-								<p><b>Budiman</b><br><o>Ketua HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/josua.jpg">
-								<p><b>Josua Dariusman Zendrato </b><br><o>Wakil Ketua HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/irene.jpg">
-								<p><b>Irene Putri Alfani Sofia Sinaga </b><br><o>Sekretaris HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/jeslyn.jpg">
-								<p><b>Jeslyn Tannia</b><br><o>Wakil Sekretaris HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/stephanie.jpg">
-								<p><b>Stephanie Ciputra </b><br><o>Bendahara HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/avrilliany.jpg">
-								<p><b>Avrilliany Cynthia </b><br><o>Wakil Bendahara HMFH Medan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/louis.jpg">
-								<p><b>Louis Fernando</b><br><o>Koordinator Departemen Hukum & Pendidikan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Bethany.jpg">
-								<p><b>Bethany Fortunatan </b><br><o>Anggota Departemen Hukum & Pendidikan</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/sylvia.jpg">
-								<p><b>Sylvia Lona</b><br><o>Koordinator Departemen Sosial</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/nurul.jpg">
-								<p><b> Nurul Fitria </b><br><o>Anggota Departemen Sosial</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Yordan.jpg">
-								<p><b>Yordan Gabriel N.G Sidabutar</b><br><o>Koordinator Departemen Olahraga</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Benita.jpg">
-								<p><b>Benita Yamaesitari Zagoto </b><br><o>Anggota Departemen Olahraga</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Natalia.jpg">
-								<p><b>Natalia</b><br><o>Anggota Departemen Olahraga</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Angeline.jpg">
-								<p><b>Angeline Darsono</b><br><o>Koordinator Departemen Seni & Budaya </o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/Ananda.jpg">
-								<p><b> Ananda Namira Wilar</b><br><o>Anggota Departemen Seni & Budaya </o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/meilani.jpg">
-								<p><b>Meilani Josephine</b><br><o>Anggota Departemen Seni & Budaya</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/luise.jpg">
-								<p><b>Luise Elsa Agusta Siregar </b><br><o>Koordinator Departemen Kerohanian</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/evelyn.jpg">
-								<p><b>Evelyn</b><br><o>Anggota Departemen Kerohanian</o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/martin.jpg">
-								<p><b>Martin Winata</b><br><o>Koordinator Departemen Keanggotaan & Kaderisasi </o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/novelia.jpg">
-								<p><b>Novelia Novotna</b><br><o>Anggota Departemen Keanggotaan & Kaderisasi </o><br>Faculty of Law, 2015</p>
-							</div>
-							<div class="member">
-								<img src="img/anggota/tasya.jpg">
-								<p><b>Tasya Putri</b><br><o>Anggota Departemen Keanggotaan & Kaderisasi </o><br>Faculty of Law, 2015</p>
-							</div>
+						<img src="<?php echo $url_struktur;}?>" width="1200">
 						</div>
 					</div>
 				</div>

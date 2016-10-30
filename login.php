@@ -40,7 +40,7 @@ else {
 						header("Location:input-news1.php");
 						break;
 					case 3:
-						header("Location:input-tentang.php");
+						header("Location:input-tentang1.php");
 						break;
 					case 4:
 						header("Location:input-ukm.php");
