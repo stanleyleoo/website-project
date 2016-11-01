@@ -22,6 +22,26 @@ CREATE DATABASE IF NOT EXISTS website;
 USE website;
 
 --
+-- Definition of table `gambar`
+--
+
+DROP TABLE IF EXISTS `gambar`;
+CREATE TABLE `gambar` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_kegiatan` varchar(100) NOT NULL,
+  `image` varchar(2048) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gambar`
+--
+
+/*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
+
+
+--
 -- Definition of table `kegiatan`
 --
 
@@ -58,7 +78,7 @@ CREATE TABLE `news` (
   `content` varchar(3000) NOT NULL,
   `image` varchar(5000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `news`
@@ -66,7 +86,7 @@ CREATE TABLE `news` (
 
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 INSERT INTO `news` (`id`,`title`,`date`,`content`,`image`) VALUES 
- (9,'Studi Banding','1997-03-15','Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.\r\n\r\nPada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll.\r\n\r\nDalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.\r\n\r\nKeesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan. ','Studi Banding.jpeg');
+ (9,'Studi Banding','2016-05-16','Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.\r\n\r\nPada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll.\r\n\r\nDalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.\r\n\r\nKeesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan. \r\n\r\nTesting','Studi Banding.jpeg');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
 
@@ -76,12 +96,12 @@ INSERT INTO `news` (`id`,`title`,`date`,`content`,`image`) VALUES
 
 DROP TABLE IF EXISTS `tentang`;
 CREATE TABLE `tentang` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cover` varchar(2048) NOT NULL,
-  `visi` varchar(2048) NOT NULL,
-  `misi` varchar(2048) NOT NULL,
-  `deskripsi` varchar(2048) NOT NULL,
-  `struktur` varchar(2048) NOT NULL,
+  `id` int(10) unsigned NOT NULL,
+  `cover` varchar(2048) DEFAULT NULL,
+  `visi` varchar(2048) DEFAULT NULL,
+  `misi` varchar(2048) DEFAULT NULL,
+  `deskripsi` varchar(2048) DEFAULT NULL,
+  `struktur` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,6 +110,8 @@ CREATE TABLE `tentang` (
 --
 
 /*!40000 ALTER TABLE `tentang` DISABLE KEYS */;
+INSERT INTO `tentang` (`id`,`cover`,`visi`,`misi`,`deskripsi`,`struktur`) VALUES 
+ (1,'cover.jpg','Himpunan Mahasiswa Fakultas Hukum, adalah lembaga kemahasiswaan di lingkungan Universitas Pelita Harapan Medan yang diselenggarakan, oleh, dan untuk mahasiswa di bawah bimbingan dan arahan Dekan guna melaksanakan kegiatan ekstra-kurikuler di bidang pemberdayaan mahasiswa, informasi dan komunikasi, bakat, minat dan sosial kemasyarakatan khususnya Fakultas Hukum. HMFH UPH Medan disahkan pada tanggal 2 April 2016. Himpunan Mahasiswa Fakultas Hukum Universitas Pelita Harapan Medan berasaskan Pancasila dan berlandaskan UUD 1945. Membentuk manusia yang bertaqwa kepada Tuhan Yang Maha Esa, berwawasan luas dan ilmiah, cendekia, memiliki integritas kepribadian, kepedulian sosial dan keadilan. HMFH ini bertujuan untuk mencapai tujuan pengabdian kepada Masyarakat dan Negara.\r\ntesitingggg','<ol>\r\n<li>Himpunan Mahasiswa Fakultas Hukum, adalah lembaga kemahasiswaan di lingkungan Universitas Pelita Harapan Medan yang diselenggarakan, oleh, dan untuk mahasiswa di bawah bimbingan dan arahan Dekan guna melaksanakan kegiatan ekstra-kurikuler di bidang pemberdayaan mahasiswa, informasi dan komunikasi, bakat, minat dan sosial kemasyarakatan khususnya Fakultas Hukum. HMFH UPH Medan disahkan pada tanggal 2 April 2016. Himpunan Mahasiswa Fakultas Hukum Universitas Pelita Harapan Medan berasaskan Pancasila dan berlandaskan UUD 1945. Membentuk manusia yang bertaqwa kepada Tuhan Yang Maha Esa, berwawasan luas dan ilmiah, cendekia, memiliki integritas kepribadian, kepedulian sosial dan keadilan. HMFH ini bertujuan untuk mencapai tujuan pengabdian kepada Masyarakat dan Negara.</li>\r\n</ol>','Himpunan Mahasiswa Fakultas Hukum, adalah lembaga kemahasiswaan di lingkungan Universitas Pelita Harapan Medan yang diselenggarakan, oleh, dan untuk mahasiswa di bawah bimbingan dan arahan Dekan guna melaksanakan kegiatan ekstra-kurikuler di bidang pemberdayaan mahasiswa, informasi dan komunikasi, bakat, minat dan sosial kemasyarakatan khususnya Fakultas Hukum. HMFH UPH Medan disahkan pada tanggal 2 April 2016. Himpunan Mahasiswa Fakultas Hukum Universitas Pelita Harapan Medan berasaskan Pancasila dan berlandaskan UUD 1945. Membentuk manusia yang bertaqwa kepada Tuhan Yang Maha Esa, berwawasan luas dan ilmiah, cendekia, memiliki integritas kepribadian, kepedulian sosial dan keadilan. HMFH ini bertujuan untuk mencapai tujuan pengabdian kepada Masyarakat dan Negara.\r\n','struktur.jpg');
 /*!40000 ALTER TABLE `tentang` ENABLE KEYS */;
 
 
@@ -106,16 +128,18 @@ CREATE TABLE `ukm` (
   `location` varchar(100) NOT NULL,
   `time` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `join` varchar(200) NOT NULL,
+  `howtojoin` varchar(200) NOT NULL,
   `logo` varchar(2048) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ukm`
 --
 
 /*!40000 ALTER TABLE `ukm` DISABLE KEYS */;
+INSERT INTO `ukm` (`id`,`title`,`faculty`,`leader`,`location`,`time`,`description`,`howtojoin`,`logo`) VALUES 
+ (5,'Moot Court','Law','Budiman','Lippo Campus lantai 7','Saturday 1.30-5.00','Moot Court merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk memberikan tambahan pengetahuan bagi mahasiswa Fakultas Hukum agar dapat mengembangkan diri terutama dalam perwujudan konkrit dari mata kuliah hukum acara. Moot court ini akan menambah pengetahuan mahasiswa mengenai tugas hakim, jaksa, penasehat hukum serta kedudukan terdakwa   dan saksi-saksi. Moot court juga bertujuan agar mahasiswa hukum akrab dengan situasi persidangan\r\ntets.','Bagi yang berminat untuk mendaftar, silahkan menghubungi : Louis Fernando (15L2) / ID Line : louis_f ','Moot Court.jpg');
 /*!40000 ALTER TABLE `ukm` ENABLE KEYS */;
 
 
