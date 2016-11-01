@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Delete from UKM</title>
+  <title>Delete from Kegiatan</title>
 </head>
 <body>
 </body>
@@ -12,37 +12,37 @@ require_once 'db.php';
 $conn = konek_db();
 
 if(!isset($_GET['id']))
-	die("Tidak ditemukan ukm");
+  die("Tidak ditemukan ID kegiatan");
 
 $id =$_GET['id'];
 
-$query = $conn->prepare("select * from ukm where id=?");
+$query = $conn->prepare("select * from kegiatan where id=?");
 $query->bind_param('i',$id);
 $result = $query->execute();
 
 if(!$result)
-	die("Gagal query");
+  die("Gagal query");
 $rows = $query->get_result();
 if($rows->num_rows == 0)
-	die("ukm tidak detemukan");
+  die("Kegiatan tidak detemukan");
 
 //hapus ukm
 // tarik gambar ukm
-$news = $rows->fetch_object();
-$image = $news->image;
+$kegiatan = $rows->fetch_object();
+$image = $kegiatan->image;
 if ($image != null && file_exists("img/$image")) {
-	//hapus image
-	unlink("img/$image");
+  //hapus image
+  unlink("img/$image");
 }
 
-$query = $conn->prepare("delete from ukm where id=?");
+$query = $conn->prepare("delete from kegiatan where id=?");
 $query->bind_param('i',$id);
 $result=$query->execute();
 
 if($result)
-header("Location:input-ukm.php");
+header("Location:input-kegiatan.php");
 else
-echo "<p>Gagl mendelete ukm</p>";
+echo "<p>Gagl mendelete kegiatan</p>";
 
 ?>
 </body>

@@ -293,33 +293,55 @@
 				<div class="row">
 					<div class="body2">
 							<div class="left">
-								<!-- <div class="seminar">
-									<a href="seminar.html"><img src="img/poster1.jpg"></a>
-								</div>
-								<div class="seminar">
-									<a href=""><img src="img/poster2.jpg"></a>
-								</div>
-								<div class="seminar">
-									<a href=""><img src="img/poster2.jpg"></a>
-								</div>
-								<div class="seminar">
-									<a href=""><img src="img/poster2.jpg"></a>
-								</div> -->
-								<p style="font-size: 100px;padding-left: 120px;">Coming Soon !!!</p>
+							<?php
+							require_once "db.php";
+							$conn = konek_db();
+							$query = $conn->prepare("select * from kegiatan");
+							$result = $query->execute();
+							if(!$result)
+								echo "result tidak ditemukan";
+							$rows = $query->get_result();
+							$row = $rows->fetch_array();
+							
+							if($row['poster'] == null || $row['poster'] == "")
+								$url_poster = "img/none.png";
+							else
+								$url_poster = "img/".$row['poster'];
+							if($row['id'] == 0){
+								echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
+							} else{
+								echo "<div class=\"seminar\">";
+								echo "<a href=\"seminar.html\"><img src=\"$url_poster\" ></a>";
+								echo "</div>";
+							}
+							?>
 							</div>
 							<div class="right">
 								<table>
-									<tr>
-									<th>Latest News</th>
-									</tr>
-									<tr>
-									<td><a href="news.html"><img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" style="margin-top:10px" width="200" height="144"><br>
-						MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</a></td>
-									</tr>
-									<tr>
-									<td><a href="news2.html"><img src="img/studibanding.jpg" style="margin-top:10px" width="200" height="144"><br>
-									STUDI BANDING FH UPH MEDAN</a></td>
-									</tr>
+									<?php
+									require_once "db.php";
+
+									$conn = konek_db();
+									$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
+
+									$result= $query->execute();
+
+									if(!$result)
+										echo "Gagal Koneksi";
+
+									$rows = $query->get_result();
+									while($row = $rows->fetch_array()){
+									if($row['image'] == null || $row['image'] == "")
+										$url_image = "img/none.png";
+									else
+										$url_image = "img/".$row['image'];
+
+									echo "<tr>";
+									echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+									$row['title']."</a></td>";
+									echo"</tr>";
+									}
+									?>
 								</table>
 								<div class="advertise">
 									<img src="img/ad.jpg">

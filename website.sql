@@ -48,21 +48,23 @@ CREATE TABLE `gambar` (
 DROP TABLE IF EXISTS `kegiatan`;
 CREATE TABLE `kegiatan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(45) NOT NULL,
-  `faculty` varchar(45) NOT NULL,
-  `speaker` varchar(45) NOT NULL,
-  `location` varchar(45) NOT NULL,
-  `date` varchar(45) NOT NULL,
-  `conclusion` varchar(45) NOT NULL,
+  `title` varchar(500) NOT NULL,
+  `faculty` varchar(100) NOT NULL,
+  `speaker` varchar(500) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  `conclusion` varchar(2000) NOT NULL,
   `poster` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kegiatan`
 --
 
 /*!40000 ALTER TABLE `kegiatan` DISABLE KEYS */;
+INSERT INTO `kegiatan` (`id`,`title`,`faculty`,`speaker`,`location`,`date`,`conclusion`,`poster`) VALUES 
+ (2,'djqcqwcq','nqndklwncew','kcnqknckwncq','cqnkcmwlnccw','2016-03-15','kwemkmweklfcmwcqwc','djqcqwcq.jpg');
 /*!40000 ALTER TABLE `kegiatan` ENABLE KEYS */;
 
 
@@ -78,7 +80,7 @@ CREATE TABLE `news` (
   `content` varchar(3000) NOT NULL,
   `image` varchar(5000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `news`
@@ -86,7 +88,8 @@ CREATE TABLE `news` (
 
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 INSERT INTO `news` (`id`,`title`,`date`,`content`,`image`) VALUES 
- (9,'Studi Banding','2016-05-16','Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.\r\n\r\nPada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll.\r\n\r\nDalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.\r\n\r\nKeesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan. \r\n\r\nTesting','Studi Banding.jpeg');
+ (9,'Studi Banding','2016-05-16','Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.\r\n\r\nPada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll.\r\n\r\nDalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.\r\n\r\nKeesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan. \r\n\r\nTesting','Studi Banding.jpg'),
+ (16,'MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN','2016-05-26','Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.\r\n\r\nPada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll.\r\n\r\nDalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.\r\n\r\nKeesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan. ','MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
 
@@ -181,13 +184,15 @@ CREATE TABLE `uu` (
   `nama` varchar(45) NOT NULL,
   `uu` varchar(20480) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `uu`
 --
 
 /*!40000 ALTER TABLE `uu` DISABLE KEYS */;
+INSERT INTO `uu` (`id`,`nama`,`uu`) VALUES 
+ (1,'test','test.pdf');
 /*!40000 ALTER TABLE `uu` ENABLE KEYS */;
 
 

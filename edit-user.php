@@ -40,7 +40,7 @@ die("<p>Informasi user tidak ditemukan</p>");
 
 $data = $rows->fetch_object();
 ?>
-
+<a href="admin.php"><button>Back to Admin</button></a>
 <form method="post" action="update-user.php?username=<?php echo $data->username;?>">
 <div>
 	<h2>Username:
@@ -62,7 +62,7 @@ $data = $rows->fetch_object();
 	<tr><th></th><th colspan="2"><input type="submit" value="Submit"></th></tr>
 </table>
 </form>
-<a href="admin.php"><button>Back to Admin</button></a>
+
 </div>
 </body>
 </html>

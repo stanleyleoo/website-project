@@ -47,6 +47,7 @@ die("<p>Informasi news tidak ditemukan</p>");
 
 $data = $rows->fetch_object();
 ?>
+<a href="input-new1.php"><button>Back to Input page</button></a>
 <div class="wrapper">
 	<form method="post" action="update-news.php?id=<?php echo $data->id;?>" enctype="multipart/form-data">
 	<div>
@@ -81,9 +82,6 @@ $data = $rows->fetch_object();
 	<th></th><td><input type="submit"></td>
 	</tr>
 	</div>
-	<tr>
-	<th></th><td><a href="input-new1.php"><button>Back to Input page</button></a></td>
-	</tr>
 	</table>
 </form>
 </body>

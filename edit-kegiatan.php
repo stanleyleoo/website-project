@@ -4,7 +4,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 	
 	header("location: login.html");
 }else {
-	if ($_SESSION['category'] != 4) {
+	if ($_SESSION['category'] != 5) {
 		session_destroy();
 		header("location: login.html");
 	}
@@ -13,7 +13,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit UKM</title>
+	<title>Edit Kegiatan</title>
 <style>
 	body{
 		background-color: #f5f5f0;
@@ -29,12 +29,12 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 require_once 'db.php';
 
 if (!isset($_GET['id']))
-	die('Informasi UKM tidak ditemukan');
+	die('ID Kegiatan tidak ditemukan');
 $conn = konek_db();
 
 
 $id = $_GET['id'];
-$query = $conn->prepare("select * from ukm where id=?");
+$query = $conn->prepare("select * from kegiatan where id=?");
 $query->bind_param("i",$id);
 $result = $query->execute();
 
@@ -43,13 +43,14 @@ if(!$result)
 
 $rows = $query->get_result();
 if($rows->num_rows == 0)
-die("<p>Informasi ukm tidak ditemukan</p>");
+die("<p>Informasi kegiatan tidak ditemukan</p>");
 
 $data = $rows->fetch_object();
 ?>
-<a href="input-ukm.php"><button>Back to Input page</button>
+	<a href="input-kegiatan.php"><button>Back to Input Kegiatan page</button></a>
 <div class="wrapper">
-	<form method="post" action="update-ukm.php?id=<?php echo $data->id;?>" enctype="multipart/form-data">
+
+	<form method="post" action="update-kegiatan.php?id=<?php echo $data->id;?>" enctype="multipart/form-data">
 	<div>
 		<h2>ID:&nbsp<?php echo $data->id;?></h2>
 	</div>
@@ -63,33 +64,29 @@ $data = $rows->fetch_object();
 	<td><input type="text" name="faculty" value="<?php echo $data->faculty?>"></td>
 	</tr>
 	<tr>
-	<th><label>Leader :</label></th>
-	<td><input type="text" name="leader" value="<?php echo $data->leader?>"></td>
+	<th><label>Speaker :</label></th>
+	<td><input type="text" name="speaker" value="<?php echo $data->speaker?>"></td>
 	</tr>
 	<tr>
 	<th><label>Location :</label></th>
 	<td><input type="text" name="location" value="<?php echo $data->location?>"></td>
 	</tr>
 	<tr>
-	<th><label>Time :</label></th>
-	<td><input type="text" name="time" value="<?php echo $data->time?>"></td>
+	<th><label>Date :</label></th>
+	<td><input type="Date" name="date" value="<?php echo $data->date?>"></td>
 	</tr>
 	<tr>
-	<th><label style="vertical-align:top;">Description :</label></th>
-	<td><textarea cols="50" rows="20" name="description"><?php echo $data->description?></textarea></td>
-	</tr>
-	<tr>
-	<th><label style="vertical-align:top;">How to Join:</label></th>
-	<td><textarea cols="50" rows="10" name="howtojoin"><?php echo $data->howtojoin?></textarea></td>
+	<th><label style="vertical-align:top;">Conclusion :</label></th>
+	<td><textarea cols="50" rows="20" name="conclusion"><?php echo $data->conclusion?></textarea></td>
 	</tr>
 	<tr>
 	<th><label style="vertical-align: top;">Logo:</label></th>
-	<td><?php if($data->logo == null)
-			$image = "img/none.png";
+	<td><?php if($data->poster == null)
+			echo "No Poster";
 			else
-			$image = "img/" . $data->logo;
+			$image = "img/" . $data->poster;
 		?>
-		<img src="<?php echo $image;?>" style="width: 500px;"></td>
+		<img src="<?php echo $image;?>" style="width: 400px;"></td>
 	</tr>
 	<tr>
 	<th></th><td><input type="file" name="image"></td>
@@ -97,11 +94,10 @@ $data = $rows->fetch_object();
 	<tr>
 	<th></th><td><input type="submit"></td>
 	</tr>
-	</div>
-	<tr>
-	<th></th><td></a></td>
-	</tr>
 	</table>
-</form>
-</body>
+	</div>
+	</form>
+
+
+	</body>
 </html>
