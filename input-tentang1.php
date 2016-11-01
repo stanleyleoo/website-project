@@ -41,10 +41,10 @@ if($rows->num_rows == 0)
 $data = $rows->fetch_object();
 ?>
 <div class= "wrapper">
-	<form method="post" action="update-tentang.php" enctype="multipart/form-data">
 	<div>
-		<h2>Welcome to Page "Tentang HMFH"</h2>
+		<h2>Welcome to Page "Tentang HMFH" , &nbsp<?php echo $_SESSION['username']; ?></h2><a href="logout.php"><button>Logout</button></a>
 	</div>
+	<form method="post" action="update-tentang.php" enctype="multipart/form-data">
 	<table>
 	<tr>
 	<tr>
@@ -53,9 +53,9 @@ $data = $rows->fetch_object();
 			if($data->cover == null)
 				echo "no Image";
 			else
-				$image = "img/" . $data->cover;
+				$image1 = "img/cover.jpg";
 		?>
-		<img src="<?php echo $image;?>" style="width: 500px;"></td>
+		<img src="<?php echo $image1;?>" style="width: 500px;"></td>
 	</tr>
 	<tr>
 	<th></th><td><input type="file" name="image1"></td>
@@ -77,9 +77,9 @@ $data = $rows->fetch_object();
 	<td><?php if($data->struktur == null)
 			echo "no image";
 			else
-			$image = "img/" . $data->struktur;
+			$image2 = "img/" . $data->struktur;
 		?>
-		<img src="<?php echo $image;?>" style="width: 500px;"></td>
+		<img src="<?php echo $image2;?>" style="width: 500px;"></td>
 	</tr>
 	<tr>
 	<th></th><td><input type="file" name="image2"></td>

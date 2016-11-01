@@ -89,11 +89,10 @@ while($rows = $row->fetch_array()){
 		width: 1200px;
 		max-height: 6000px;
 		margin:auto;
-		margin-top: -1px;
 	}
 	.image{
 		background-image: url(<?php echo $url_cover;?>);
-		height: 600px;
+		background-size: 1200px;
 		width: 1200px;
 		max-height: 1500px;
 		margin-top: -50px;
@@ -122,7 +121,6 @@ while($rows = $row->fetch_array()){
 		text-align: center;
 		color:white;
 		font-size: 35px;
-		margin-top: -30px;
 	}
 	.about-head p{
 		padding-top: 15px;

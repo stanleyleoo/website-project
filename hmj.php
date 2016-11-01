@@ -592,7 +592,7 @@
 						echo "<a href=\"news.html\"><img src=\"$url_image\" width=\"150\"></a></div>";
 						echo "<div class=\"news\"><h2><a href=\"news.html\">".$row['title']."</a></h2>";
 						echo "<p style=\"color:#adad85;\">".date_format($date,"d F Y")."</p>";
-						echo "<p style=\"max-width:20ch;\">" . $row['content']."</p>";
+						echo "<p>" . $row['content']."</p>";
 						echo "</div></div>";
 					}
 
