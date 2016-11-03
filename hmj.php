@@ -524,7 +524,7 @@
 					require_once "db.php";
 
 					$conn = konek_db();
-					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC");
+					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 5");
 
 					$result= $query->execute();
 
@@ -545,7 +545,7 @@
 							echo "<label for=\"" . $v[$i] . "\">".$value[$i]."</label>\n";
 							echo "<a href=\"javascript:void(0);\">\n";
 								echo "<img src=\"$url_image\" class=\" wow fadeInLeft animated\">\n";
-								echo "<span>".$row['title']." </span></li></a>\n";
+								echo "<span>	".$row['title']." </span></li></a>\n";
 					 // } 
 						$i++;
 					}
