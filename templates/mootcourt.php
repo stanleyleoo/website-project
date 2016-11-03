@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel='shortcut icon' href='img/favicon.jpg' />
-	<title>Kegiatan	</title>
+<link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
+	<title>Unit Kerja Mahasiswa	</title>
 <style>
 	body{
 		margin: 0px;
@@ -64,69 +64,59 @@
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		height: 1000px;
+		height: 800px;
 		max-height: 5000px;
 		margin:auto;
 		margin-top: -1px;
 	}
-	.left{
-		width: 900px;
-		max-height: 3000px;
-		float: left;
-	}
-	.seminar{
-		width: 250px;
-		height: 320px;
-		border:5px solid #b8b894;
-		float: left;
-		margin:20px 10px 20px 20px;
-	}
-	
-	.seminar img{
-		width: 220px;
+	.img{
+		width: 400px;
 		height: 300px;
-		padding-top:10px;
-		padding-left:15px
-	}
-	.seminar h1{
-		padding-left: 120px;
-	}
-	.right{
-		width: 300px;
-		max-height: 1200px;
 		float: left;
-		background-color: #e0ebeb;
-		margin-top: 20px;
 	}
-	.right table{
-		margin: 10px 0 20px 25px;
+	.img img{
+		width: 300px;
+		height: 300px;
+		padding-top: 20px;
+		padding-left: 60px;
 	}
-	.right table,th,td{
-		border:2px solid black;
-		border-collapse: collapse;
-		text-align: center;
+	.info{
+		width: 700px;
+		height: 200px;
+		padding-top:20px;
+		float: left;
 	}
-	.right td a{
-		text-decoration: none;
+	.info ul{
+		font-size: 22px;
+	}
+	.info li{
 		list-style: none;
 	}
-	.right th,td{
-		width: 235px;
+	.des-header{
+		width: 1200px;
 		height: 50px;
-		max-height: 300px;
+		background-color: #003cb3;
+		border-bottom: 5px solid #ffa31a;
 	}
-	th{
-		background: #002b80;
-		color:white;
+	.des-header h2{
+		padding-top:10px;
+		padding-left: 40px;
+		color: white;
 	}
-	.advertise{
-		width: 300px;
-		height: 300px;
+	.description {
+		width: 1200px;
+		max-height: 500px;
+		font-size: 22px;
 	}
-	.advertise img{
-		margin-left: 25px;
+	.description,.join p{
+		padding: 20px 40px 10px 30px;
+		text-indent:50px;
 	}
-	
+	.join{
+		width: 1200px;
+		max-height: 500px;
+		font-size: 22px;
+	}
 	.footer{
 		width: 1200px;
 		height: 50px;
@@ -134,7 +124,6 @@
 		color:white;
 		margin:auto;
 		text-align: center;
-		margin-top: -40px;
 	}
 	.footer h2{
 		padding-top:10px;
@@ -259,10 +248,10 @@
 						<ul>
 						  <li><a href="hmj.php">Home</a></li>
 						  <li><a href="tentang.php">Tentang HMFH</a></li>
-						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
-						  <li class="current-menu-item"><a href="Kegiatan.php">Kegiatan</a></li>
+						  <li class="current-menu-item"><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
+						  <li><a href="Kegiatan.php">Kegiatan</a></li>
 						  <li><a href="glosarium.php">Glosarium</a>
-							  <!-- <ul>
+							 <!--  <ul>
 							      <li class="dir"><a href="#">Sub Menu 1</a>
 							      	<ul>
 							          <li><a href="#">Category 1</a></li>
@@ -292,71 +281,43 @@
 				</div>
 				<div class="row">
 					<div class="body2">
-							<div class="left">
-							<?php
-							require_once "db.php";
-							$conn = konek_db();
-							$query = $conn->prepare("select * from kegiatan");
-							$result = $query->execute();
-							if(!$result)
-								echo "result tidak ditemukan";
-							$rows = $query->get_result();
-							while($row = $rows->fetch_array()){
-							
-							if($row['poster'] == null || $row['poster'] == "")
-								$url_poster = "img/none.png";
-							else
-								$url_poster = "img/".$row['poster'];
-							if($row['id'] == 0){
-								echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
-							} else{
-								echo "<div class=\"seminar\">";
-								echo "<a href=\"seminar.html\"><img src=\"$url_poster\" ></a>";
-								echo "</div>";
-							}
-						}
-							?>
-							</div>
-							<div class="right">
-								<table>
-								<tr>
-									<th>Latest News</th>
-									</tr>
-									<?php
-									require_once "db.php";
-
-									$conn = konek_db();
-									$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
-
-									$result= $query->execute();
-
-									if(!$result)
-										echo "Gagal Koneksi";
-
-									$rows = $query->get_result();
-									while($row = $rows->fetch_array()){
-									if($row['image'] == null || $row['image'] == "")
-										$url_image = "img/none.png";
-									else
-										$url_image = "img/".$row['image'];
-
-									echo "<tr>";
-									echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
-									$row['title']."</a></td>";
-									echo"</tr>";
-									}
-									?>
-								</table>
-								<div class="advertise">
-									<img src="img/ad.jpg">
-								</div>
-							</div>
-					</div>'
 						<div class="row">
-							<div class="footer">
-								<h2>&copy2016 by HMFH UPH MEDAN</h2>
+							<div class="img" style="margin-bottom: 10px">
+								<img src="img/mootcourt.png">
+							</div>
+							<div class="info">
+								<ul>
+								<li><b>Name</b> 	: Debate club</li><br>
+								<li><b>Faculty</b>	: Law</li><br>
+								<li><b>Leader</b>	: Immanuel Banjarnahor</li><br>
+								<li><b>Location</b> : 6th floor Lippo Campus</li><br>
+								<li><b>Time</b> 	: Saturday, 1.30 P.M - 5.00 P.M</li>
+								</ul>
+
 							</div>
 						</div>
+						<div class="row">
+							<div class="des-header">
+								<h2>Description</h2>
+							</div>
+							<div class="description">
+								<p>Moot Court merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk memberikan tambahan pengetahuan bagi mahasiswa Fakultas Hukum agar dapat mengembangkan diri terutama dalam perwujudan konkrit dari mata kuliah hukum acara. Moot court ini akan menambah pengetahuan mahasiswa mengenai tugas hakim, jaksa, penasehat hukum serta kedudukan terdakwa &nbsp dan saksi-saksi. Moot court juga bertujuan agar mahasiswa hukum akrab dengan situasi persidangan.</p>
+							</div>
+							<div class="des-header">
+								<h2>How to join??</h2>
+							</div>
+							<div class="join">
+								<p>Bagi yang berminat untuk mendaftar, silahkan menghubungi : 
+								Louis Fernando (15L2) / ID Line : louis_f
+								</p>
+							</div>
+						</div>
+						<div class="row">
+								<div class="footer">
+								<h2>&copy2016 by HMFH UPH MEDAN</h2>
+								</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

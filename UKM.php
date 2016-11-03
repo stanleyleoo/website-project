@@ -67,8 +67,7 @@
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		height: 650px;
-		max-height: 5000px;
+		max-height: 10000px;
 		margin:auto;
 		margin-top: -1px;
 	}
@@ -255,14 +254,27 @@
 				<div class="row">
 					<div class="body2">
 						<div class="row">
-								<div class="club">
-									<a href="debate.html"><img src="img/debate.png" width="400" height="400"><br>
-									<h1>Debate Club</h1></a>
-								</div>
-								<div class="club">
-									<a href="mootcourt.html"><img src="img/mootcourt.png" width="380" height="380" style="padding-top:20px;padding-left:10px"><br>
-									<h1>Moot Court</h1></a>
-								</div>
+						<?php
+						require_once "db.php";
+						$conn = konek_db();
+						$query=$conn->prepare("select * from ukm");
+						$result = $query->execute();
+						if(!$result)
+							die("Koneksi db gagal");
+						$rows = $query->get_result();
+						
+						while($row = $rows->fetch_array()){
+
+						if($row['logo'] == null || $row['logo'] == "")
+							echo "No Image";
+						else
+							$url_image = "img/".$row['logo'];
+								echo "<div class=\"club\">";
+								echo "<a href=\"debate.html\"><img src=\"$url_image\" width=\"400\" height=\"400\"><br>";
+								echo "<h1>".$row['title']."</h1></a></div>";
+						}	
+						
+						?>
 						</div>
 						<div class="row">
 								<div class="footer">

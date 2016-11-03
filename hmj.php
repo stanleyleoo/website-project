@@ -488,7 +488,10 @@
 	</script>
 </head>
 <body>
-		
+
+	
+
+
 		
 <div class="wrapper">
 	<div class="body">
@@ -517,14 +520,38 @@
 		<div class="row">
 			<div class="slider-bg">
 				<ul id="css3-slider">
-					<li >
-						<input type="radio" id="s1" name="num" checked="true" class="mySlides"/>
-						<label for="s1">1</label>
-						<a href="javascript:void(0);">
-							<img src="img/photo.jpg" class=" wow fadeInLeft animated">
-							<span>Studi Banding HMFH Medan</span>
-						</a>
-					</li>
+				<?php
+					require_once "db.php";
+
+					$conn = konek_db();
+					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC");
+
+					$result= $query->execute();
+
+					if(!$result)
+						echo "Gagal Koneksi";
+
+					$rows = $query->get_result();
+					$value = array(1,2,3,4,5);
+					$v = array('s1','s2','s3','s4','s5');
+					$i = 0;
+					while($row = $rows->fetch_array()){
+						if($row['image'] == null || $row['image'] == "")
+							$url_image = "img/none.png";
+						else
+							$url_image = "img/".$row['image'];
+					// for ($i=0; $i < 5; $i++) { 
+					 	echo "<li><input type=\"radio\" id=\"" . $v[$i] . "\" name=\"num\" checked=\"true\" class=\"mySlides\">\n";
+							echo "<label for=\"" . $v[$i] . "\">".$value[$i]."</label>\n";
+							echo "<a href=\"javascript:void(0);\">\n";
+								echo "<img src=\"$url_image\" class=\" wow fadeInLeft animated\">\n";
+								echo "<span>".$row['title']." </span></li></a>\n";
+					 // } 
+						$i++;
+					}
+				
+				
+				?>
 				</ul>
 			</div>
 		</div>
@@ -561,9 +588,9 @@
 					?>
 					
 					</table>
-					<div class="advertise">
+					<!-- <div class="advertise">
 					<img src="img/ad.jpg">
-					</div>
+					</div> -->
 				</div>
 				<div class="center">
 					<div class="news-head">
@@ -582,10 +609,10 @@
 
 					$rows = $query->get_result();
 					while($row = $rows->fetch_array()){
-									if($row['image'] == null || $row['image'] == "")
-										$url_image = "img/none.png";
-									else
-										$url_image = "img/".$row['image'];
+					if($row['image'] == null || $row['image'] == "")
+						$url_image = "img/none.png";
+					else
+						$url_image = "img/".$row['image'];
 						$date = date_create($row['date']);
 						echo "<div class=\"news-option\">";
 						echo "<div class=\"img\">";
@@ -599,17 +626,6 @@
 
 
 					?>
-					<!-- <div class="news-option">
-						<div class="img">
-						<a href="news.html"><img src="img/photo.jpg" width="150"></a>
-						</div>
-						<div class="news">
-						<h2><a href="news.html">Studi Banding UPH Medan</a></h2>
-						<p style="color:#adad85;">HMFH || Date time</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-						</div>
-					</div> -->
-					
 					<div class="row">
 						<!-- <div class="news-nav">
 							<input type="button" name="next" value="Next">

@@ -47,7 +47,7 @@ die("<p>Informasi ukm tidak ditemukan</p>");
 
 $data = $rows->fetch_object();
 ?>
-<a href="input-ukm.php"><button>Back to Input page</button>
+<a href="input-ukm.php"><button>Back to Input page</button></a>
 <div class="wrapper">
 	<form method="post" action="update-ukm.php?id=<?php echo $data->id;?>" enctype="multipart/form-data">
 	<div>

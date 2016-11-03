@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel='shortcut icon' href='img/favicon.jpg' />
-	<title>Kegiatan	</title>
+<link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
+	<title>Glosarium	</title>
 <style>
 	body{
 		margin: 0px;
@@ -60,36 +60,19 @@
 		width: 1200px;
 		height: 50px;
 		background-color:#ffa31a;
+		margin-top: 0px;
+		border-bottom: none;	
 	}
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		height: 1000px;
 		max-height: 5000px;
-		margin:auto;
 		margin-top: -1px;
 	}
 	.left{
 		width: 900px;
 		max-height: 3000px;
 		float: left;
-	}
-	.seminar{
-		width: 250px;
-		height: 320px;
-		border:5px solid #b8b894;
-		float: left;
-		margin:20px 10px 20px 20px;
-	}
-	
-	.seminar img{
-		width: 220px;
-		height: 300px;
-		padding-top:10px;
-		padding-left:15px
-	}
-	.seminar h1{
-		padding-left: 120px;
 	}
 	.right{
 		width: 300px;
@@ -126,7 +109,6 @@
 	.advertise img{
 		margin-left: 25px;
 	}
-	
 	.footer{
 		width: 1200px;
 		height: 50px;
@@ -134,12 +116,11 @@
 		color:white;
 		margin:auto;
 		text-align: center;
-		margin-top: -40px;
 	}
 	.footer h2{
 		padding-top:10px;
 	}
-	.menu ul
+		.menu ul
 		{
 			list-style:none;
 			position:relative;
@@ -236,6 +217,37 @@
 			display:block;
 			z-index : 999;
 		}
+		.head{
+		width: 880px;
+		height: 60px;
+		border-bottom: 5px solid #ffa31a;
+		margin-top: 30px;
+		margin-left: 20px;
+		background-color: #002b80;
+		}
+		.head h2{
+			color:white;
+			padding: 20px 0 0 30px;
+		}
+		.undang-undang{
+			width: 880px;
+			height: 100px;
+			background-color: #e0e0d2;
+			margin-left: 20px;
+			margin-top: -20px;
+		}
+		.undang-undang h2{
+			padding-top: 30px;
+			padding-left: 20px;
+		}
+		.undang-undang a{
+			text-decoration:none;
+			color:black;
+		}
+		.UU{
+			margin-top: 10px;
+			padding-left: 20px;
+		}
 </style>
 </head>
 <body>
@@ -260,8 +272,8 @@
 						  <li><a href="hmj.php">Home</a></li>
 						  <li><a href="tentang.php">Tentang HMFH</a></li>
 						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
-						  <li class="current-menu-item"><a href="Kegiatan.php">Kegiatan</a></li>
-						  <li><a href="glosarium.php">Glosarium</a>
+						  <li><a href="Kegiatan.php">Kegiatan</a></li>
+						  <li class="current-menu-item"><a href="glosarium.php">Glosarium</a>
 							  <!-- <ul>
 							      <li class="dir"><a href="#">Sub Menu 1</a>
 							      	<ul>
@@ -289,74 +301,41 @@
 						</ul>
 			</div>
 				</div>
-				</div>
 				<div class="row">
 					<div class="body2">
 							<div class="left">
-							<?php
-							require_once "db.php";
-							$conn = konek_db();
-							$query = $conn->prepare("select * from kegiatan");
-							$result = $query->execute();
-							if(!$result)
-								echo "result tidak ditemukan";
-							$rows = $query->get_result();
-							while($row = $rows->fetch_array()){
-							
-							if($row['poster'] == null || $row['poster'] == "")
-								$url_poster = "img/none.png";
-							else
-								$url_poster = "img/".$row['poster'];
-							if($row['id'] == 0){
-								echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
-							} else{
-								echo "<div class=\"seminar\">";
-								echo "<a href=\"seminar.html\"><img src=\"$url_poster\" ></a>";
-								echo "</div>";
-							}
-						}
-							?>
+								<div class="head">
+								<h2>UU No. 30 Tahun 1999 tentang Arbitrase dan Alternatif Penyelesaian Sengketa</h2>
+								</div>
+								<div class="UU">
+								<embed src="UU/UU No. 30 Tahun 1999 tentang Arbitrase dan Alternatif Penyelesaian Sengketa.pdf" width="880px" height="1000px" />
+								</div>
 							</div>
 							<div class="right">
 								<table>
-								<tr>
+									<tr>
 									<th>Latest News</th>
 									</tr>
-									<?php
-									require_once "db.php";
-
-									$conn = konek_db();
-									$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
-
-									$result= $query->execute();
-
-									if(!$result)
-										echo "Gagal Koneksi";
-
-									$rows = $query->get_result();
-									while($row = $rows->fetch_array()){
-									if($row['image'] == null || $row['image'] == "")
-										$url_image = "img/none.png";
-									else
-										$url_image = "img/".$row['image'];
-
-									echo "<tr>";
-									echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
-									$row['title']."</a></td>";
-									echo"</tr>";
-									}
-									?>
+									<tr>
+									<td><a href="news.html"><img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" style="margin-top:10px" width="200" height="144"><br>
+									MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</a></td>
+									</tr>
+									<tr>
+									<td><a href=""><img src="img/test.jpg" style="margin-top:10px" width="200" height="144"><br>
+									Penerimaan Anggota baru</a></td>
+									</tr>
 								</table>
 								<div class="advertise">
 									<img src="img/ad.jpg">
 								</div>
 							</div>
-					</div>'
-						<div class="row">
-							<div class="footer">
+							<div class="row">
+								<div class="footer">
 								<h2>&copy2016 by HMFH UPH MEDAN</h2>
-							</div>
+								</div>
 						</div>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
