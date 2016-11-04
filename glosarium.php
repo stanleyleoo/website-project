@@ -288,9 +288,11 @@
 								if(!$result)
 									die("Gagal Koneksi");
 								$rows = $query->get_result();
+								
 								while ($row = $rows->fetch_array()) {
-									echo"<div class=\"undang-undang\">";
-									echo "<a href=\"".$row['nama'].".html\"><h2>".$row['nama']."</h2></a>";
+									$uu = "undang-undang.php?id=".$row['id'];
+									echo "<div class=\"undang-undang\">";
+									echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
 									echo "</div>";
 								}
 									
@@ -318,12 +320,12 @@
 										$url_image = "img/none.png";
 									else
 										$url_image = "img/".$row['image'];
-
+										$news = "news.php?id=".$row['id'];
 									echo "<tr>";
-									echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
-									$row['title']."</a></td>";
+									echo "<td><a href=\"$news\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+										$row['title']."</a></td>";
 									echo"</tr>";
-									}
+								}
 									?>
 								</table>
 								<div class="advertise">

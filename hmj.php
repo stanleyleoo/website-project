@@ -676,7 +676,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-var myIndex = 1;
+var myIndex = 0;
 	var time = 9000;
 carousel();
 	function carousel() {

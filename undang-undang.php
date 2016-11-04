@@ -254,6 +254,24 @@
 <div class="wrapper">
 	<div class="row">
 		<div class="body">
+		<?php
+			require_once "db.php";
+				if(!isset($_GET['id']))
+					die("informasi tidak ada");
+				$conn = konek_db();
+				$id = $_GET['id'];
+				$query = $conn->prepare("select * from uu where id=?");
+				$query->bind_param("i",$id);
+				$result = $query->execute();
+				$rows= $query->get_result();
+				if($rows->num_rows == 0)
+				die("<p>Informasi UU tidak ditemukan</p>");
+				$data = $rows->fetch_object();
+				if($data->uu == null)
+					$uu = "UU/none.png";
+				else
+					$uu = "UU/" . $data->uu;
+		?>
 			<div class="row">
 				<div class="row">
 					<div class="header">
@@ -274,29 +292,6 @@
 						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
 						  <li><a href="Kegiatan.php">Kegiatan</a></li>
 						  <li class="current-menu-item"><a href="glosarium.php">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
 						  </li>
 						</ul>
 			</div>
@@ -305,10 +300,10 @@
 					<div class="body2">
 							<div class="left">
 								<div class="head">
-								<h2>UU No. 30 Tahun 1999 tentang Arbitrase dan Alternatif Penyelesaian Sengketa</h2>
+								<h2><?php echo $data->nama;?></h2>
 								</div>
 								<div class="UU">
-								<embed src="UU/UU No. 30 Tahun 1999 tentang Arbitrase dan Alternatif Penyelesaian Sengketa.pdf" width="880px" height="1000px" />
+								<embed src="<?php echo $uu;?>" width="500" height="375" type='application/pdf'>
 								</div>
 							</div>
 							<div class="right">
@@ -316,18 +311,31 @@
 									<tr>
 									<th>Latest News</th>
 									</tr>
-									<tr>
-									<td><a href="news.html"><img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" style="margin-top:10px" width="200" height="144"><br>
-									MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</a></td>
-									</tr>
-									<tr>
-									<td><a href=""><img src="img/test.jpg" style="margin-top:10px" width="200" height="144"><br>
-									Penerimaan Anggota baru</a></td>
-									</tr>
+									<?php
+									require_once "db.php";
+
+									$conn = konek_db();
+									$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
+
+									$result= $query->execute();
+
+									if(!$result)
+										echo "Gagal Koneksi";
+
+									$rows = $query->get_result();
+									while($row = $rows->fetch_array()){
+									if($row['image'] == null || $row['image'] == "")
+										$url_image = "img/none.png";
+									else
+										$url_image = "img/".$row['image'];
+										$news = "news.php?id=".$row['id'];
+									echo "<tr>";
+									echo "<td><a href=\"$news\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+										$row['title']."</a></td>";
+									echo"</tr>";
+										}
+									?>
 								</table>
-								<div class="advertise">
-									<img src="img/ad.jpg">
-								</div>
 							</div>
 							<div class="row">
 								<div class="footer">

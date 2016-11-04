@@ -224,29 +224,6 @@
 						  <li class="current-menu-item"><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
 						  <li><a href="Kegiatan.php">Kegiatan</a></li>
 						  <li><a href="glosarium.php">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
 						  </li>
 						</ul>
 			</div>
@@ -269,8 +246,9 @@
 							echo "No Image";
 						else
 							$url_image = "img/".$row['logo'];
+							$club = "club.php?id=".$row['id'];
 								echo "<div class=\"club\">";
-								echo "<a href=\"debate.html\"><img src=\"$url_image\" width=\"400\" height=\"400\"><br>";
+								echo "<a href=\"$club\"><img src=\"$url_image\" width=\"400\" height=\"400\"><br>";
 								echo "<h1>".$row['title']."</h1></a></div>";
 						}	
 						

@@ -64,7 +64,6 @@
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		height: 800px;
 		max-height: 5000px;
 		margin:auto;
 		margin-top: -1px;
@@ -104,13 +103,14 @@
 		color: white;
 	}
 	.description {
-		width: 1200px;
+		width: 1130px;
 		max-height: 500px;
 		font-size: 22px;
 	}
 	.description,.join p{
 		padding: 20px 40px 10px 30px;
 		text-indent:50px;
+		text-align: justify;
 	}
 	.join{
 		width: 1200px;
@@ -251,47 +251,43 @@
 						  <li class="current-menu-item"><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
 						  <li><a href="Kegiatan.php">Kegiatan</a></li>
 						  <li><a href="glosarium.php">Glosarium</a>
-							 <!--  <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
 						  </li>
 						</ul>
-			</div>
+					</div>
 				</div>
 				</div>
 				<div class="row">
 					<div class="body2">
+					<?php
+					require_once "db.php";
+						if(!isset($_GET['id']))
+							die("ID tidak ditemukan");
+						$conn = konek_db();
+						$id = $_GET['id'];
+						$query = $conn->prepare("select * from ukm where id=?");
+						$query->bind_param("i",$id);
+						$result = $query->execute();
+						$rows= $query->get_result();
+						if($rows->num_rows == 0)
+						die("<p>Informasi news tidak ditemukan</p>");
+						$data = $rows->fetch_object();
+						if($data->logo == null)
+							$image = "img/none.png";
+							else
+							$image = "img/" . $data->logo;
+						
+					?>
 						<div class="row">
 							<div class="img" style="margin-bottom: 10px">
-								<img src="img/mootcourt.png">
+								<?php echo "<img src=\"$image\">"; ?>
 							</div>
 							<div class="info">
 								<ul>
-								<li><b>Name</b> 	: Debate club</li><br>
-								<li><b>Faculty</b>	: Law</li><br>
-								<li><b>Leader</b>	: Immanuel Banjarnahor</li><br>
-								<li><b>Location</b> : 6th floor Lippo Campus</li><br>
-								<li><b>Time</b> 	: Saturday, 1.30 P.M - 5.00 P.M</li>
+								<li><b>Name</b> 	: <?php echo $data->title;?></li><br>
+								<li><b>Faculty</b>	: <?php echo $data->faculty;?></li><br>
+								<li><b>Leader</b>	: <?php echo $data->leader;?></li><br>
+								<li><b>Location</b> : <?php echo $data->location;?></li><br>
+								<li><b>Time</b> 	: <?php echo $data->time;?></li>
 								</ul>
 
 							</div>
@@ -301,14 +297,13 @@
 								<h2>Description</h2>
 							</div>
 							<div class="description">
-								<p>Moot Court merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk memberikan tambahan pengetahuan bagi mahasiswa Fakultas Hukum agar dapat mengembangkan diri terutama dalam perwujudan konkrit dari mata kuliah hukum acara. Moot court ini akan menambah pengetahuan mahasiswa mengenai tugas hakim, jaksa, penasehat hukum serta kedudukan terdakwa &nbsp dan saksi-saksi. Moot court juga bertujuan agar mahasiswa hukum akrab dengan situasi persidangan.</p>
+								<p><?php echo $data->description;?></p>
 							</div>
 							<div class="des-header">
 								<h2>How to join??</h2>
 							</div>
 							<div class="join">
-								<p>Bagi yang berminat untuk mendaftar, silahkan menghubungi : 
-								Louis Fernando (15L2) / ID Line : louis_f
+								<p><?php echo $data->howtojoin;?>
 								</p>
 							</div>
 						</div>
