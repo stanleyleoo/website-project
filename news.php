@@ -303,6 +303,21 @@
 </style>
 </head>
 <body>
+<?php
+require_once "db.php";
+if(!isset($_GET['id']))
+	die("informasi tidak ada");
+$conn = konek_db();
+$id = $_GET['id'];
+$query = $conn->prepare("select * from news where id=?");
+$query->bind_param("i",$id);
+$result = $query->execute();
+$rows= $query->get_result();
+if($rows->num_rows == 0)
+die("<p>Informasi news tidak ditemukan</p>");
+
+$data = $rows->fetch_object();
+?>
 <div class="wrapper">
 	<div class="row">
 		<div class="body">
@@ -325,29 +340,6 @@
 				  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
 				  <li><a href="Kegiatan.php">Kegiatan</a></li>
 				  <li><a href="glosarium.php">Glosarium</a>
-					  <!-- <ul>
-					      <li class="dir"><a href="#">Sub Menu 1</a>
-					      	<ul>
-					          <li><a href="#">Category 1</a></li>
-					          <li><a href="#">Category 2</a></li>
-					          <li><a href="#">Category 3</a></li>
-					          <li><a href="#">Category 4</a></li>
-					          <li><a href="#">Category 5</a></li>
-					        </ul>
-					      </li>
-					      <li class="dir"><a href="#">Sub Menu 2</a>
-					        <ul>
-					          <li><a href="#">Category 1</a></li>
-					          <li><a href="#">Category 2</a></li>
-					          <li><a href="#">Category 3</a></li>
-					          <li><a href="#">Category 4</a></li>
-					          <li><a href="#">Category 5</a></li>
-					        </ul>
-					      </li>
-					      <li><a href="#">Sub Menu 3</a></li>
-					      <li><a href="#">Sub Menu 4</a></li>
-					      <li><a href="#">Sub Menu 5</a></li>
-				    </ul> -->
 				  </li>
 				</ul>
 			</div>
@@ -357,9 +349,14 @@
 					<div class="left">
 						<div class="row">
 							<div class="news-head">
-								<h3>MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</h3>
+								<h3><?php echo $data->title?></h3>
 							</div>
-							<img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" width="900">
+							<?php if($data->image == null)
+								$image = "img/none.png";
+								else
+								$image = "img/" . $data->image;
+							?>
+							<img src="<?php echo $image;?>" width="900">
 						</div>	
 						<div class="row">
 							<div class="button">
@@ -368,15 +365,7 @@
 								<a href="https://twitter.com/HMFH_UPH"><img src="img/twitter-button.png" width="100" height="100"></a>
 							</div>
 							<div class="news">
-								<p>Fakultas Hukum Universitas Pelita Harapan Medan telah menyelenggarakan sebuah seminar yang mengangkat tema Sengketa di Laut Cina Selatan, pada hari Sabtu 20 Mei 2016 di Kampus Lippo UPH Medan.</p>
-
-								<p>Pada seminar kali ini FakultasHukum UPH Medan turut mengundang Dr. Ius.Damos Dumoli Agusman (Sekretaris Dirjen Hukum dan Perjanjian Internasional) sebagai pembicara dan turut mengundang beberapa Fakultas Hukum yang ada di Medan seperti Universitas Amir Hamzah, Universitas Sumatra Utara, dll. </p>
-
-								<p>Dalam seminar ini juga terdapat penandatanganan Nota Kesepemahaman  (MoU) antara FakultasHukum UPH Medan dan Kementrian Luar Negeri RI.</p>
-
-								<p>Keesokan harinya pada hari Sabtu, tanggal 21 Mei 2016 diadakan kelas Joint Communique yang dibawakan oleh pihak Kemenlu yang dihadiri oleh mahasiswa Fakultas Hukum UPH Medan.
-								</p>
-								<p>Penulis : Admin</p>
+								<p><?php echo $data->content?></p>
 							</div>
 							
 						</div>
@@ -394,14 +383,31 @@
 							<tr>
 							<th>Latest News</th>
 							</tr>
-							<tr>
-							<td><a href="news.html"><img src="img/MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN.jpg" style="margin-top:10px" width="200" height="144"><br>
-							MEMAHAMI SENGKETA TERITORIAL DI LAUT CINA SELATAN</a></td>
-							</tr>
-							<tr>
-						<td><a href="news2.html"><img src="img/studibanding.jpg" style="margin-top:10px" width="200" height="144"><br>
-						STUDI BANDING FH UPH MEDAN</a></td>
-						</tr>
+							<?php
+								require_once "db.php";
+
+								$conn = konek_db();
+								$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
+
+								$result= $query->execute();
+
+								if(!$result)
+									echo "Gagal Koneksi";
+
+								$rows = $query->get_result();
+								while($row = $rows->fetch_array()){
+								if($row['image'] == null || $row['image'] == "")
+									$url_image = "img/none.png";
+								else
+									$url_image = "img/".$row['image'];
+								$news = "news.php?id=".$row['id'];
+								echo "<tr>";
+								echo "<td><a href=\"$news\">";
+								echo "<img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>". $row['title']."</a></td>";
+								echo"</tr>";
+								}
+							
+								?>
 						</table>
 						<div class="advertise">
 						<img src="img/ad.jpg">

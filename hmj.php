@@ -567,7 +567,6 @@
 
 					$conn = konek_db();
 					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT 2");
-
 					$result= $query->execute();
 
 					if(!$result)
@@ -579,9 +578,9 @@
 						$url_image = "img/none.png";
 					else
 						$url_image = "img/".$row['image'];
-
+					$news = "news.php?id=".$row['id'];
 					echo "<tr>";
-					echo "<td><a href=\"news.html\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
+					echo "<td><a href=\"$news\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
 					$row['title']."</a></td>";
 					echo"</tr>";
 					}
@@ -614,10 +613,11 @@
 					else
 						$url_image = "img/".$row['image'];
 						$date = date_create($row['date']);
+						$news = "news.php?id=".$row['id'];
 						echo "<div class=\"news-option\">";
 						echo "<div class=\"img\">";
-						echo "<a href=\"news.html\"><img src=\"$url_image\" width=\"150\"></a></div>";
-						echo "<div class=\"news\"><h2><a href=\"news.html\">".$row['title']."</a></h2>";
+						echo "<a href=\"$news\"><img src=\"$url_image\" width=\"150\"></a></div>";
+						echo "<div class=\"news\"><h2><a href=\"$news\">".$row['title']."</a></h2>";
 						echo "<p style=\"color:#adad85;\">".date_format($date,"d F Y")."</p>";
 						echo "<p>" . $row['content']."</p>";
 						echo "</div></div>";
