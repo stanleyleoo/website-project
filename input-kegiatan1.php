@@ -33,16 +33,7 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
         }
         $file_poster2='';
         $i = array(0,1,2,3,4,5,6,7,8,9);
-        if(isset($_FILES['image2[$i]'])){
-        if($_FILES['image2[$i]']['error'] == 0) {
-            $image2 = $_FILES['image2[$i]'];
-
-            $extension = new SplFileInfo($image2[$i]['name']);
-            $extension = $extension->getExtension();
-            $file_poster2 = $image2[$i]['name'] . '.' . $extension;
-            copy($image2[$i]['tmp_name'], 'img/' . $file_poster2);
-          }
-        }
+        
     $query = $conn->prepare("INSERT kegiatan(title,faculty,speaker,location,date,conclusion,poster) VALUES(?,?,?,?,?,?,?)");
     $query->bind_param("sssssss",$title,$faculty,$speaker,$location,$date,$conclusion,$file_poster);
     $result = $query->execute();
@@ -53,10 +44,47 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
 
     $result3 = $query2->get_result();
     $data = $result3->fetch_array();  
+    function display_list($array) {
+        $hasil = "<ul>";
+        foreach ($array as $item) {
+            $hasil .= "<li>$item</li>";
+        }
+        $hasil .= "</ul>";
+        return $hasil;
+    }
+    $file_post = array();
+    if(isset($_FILES['image2'])){
+        $countarray = count($_FILES['image2']['name']);
+        echo $countarray;
+        for($i=0;$i<$countarray;$i++){
+          // $image = $_FILES['image2'][$i];
+          if($_FILES['image2']['error'][$i] == 0) {
+              
+              $filename = pathinfo($_FILES['image2']['name'][$i], PATHINFO_FILENAME);
+            // ambil nama extension file
+              $ext = pathinfo($_FILES['image2']['name'][$i], PATHINFO_EXTENSION);
+              // lokasi directory tempat menyimpan file yang diupload
+              $path = "img/";
 
-    $query3 = $conn->prepare("INSERT gambar(id_kegiatan,image) VALUES(?,?)");
-    $query3->bind_param("is",$data['id'],$file_poster2);
-    $result4 = $query3->execute();
+              $imgname = $path . $filename . '.' . $ext;
+              move_uploaded_file($_FILES['image2']['tmp_name'][$i], $imgname);
+              // $extension = new SplFileInfo($image2['name']);
+              // $extension = $extension->getExtension();
+              // $file_poster2 = $image2['name'] . '.' . $extension;
+              // copy($image2['tmp_name'], 'img/' . $file_poster2);
+              array_push($file_post, $imgname);//eh bisa gini ga ya kwkwkwkw w ga rau  wkwkkwwk
+            }
+          }
+        }else {
+          echo "no images";
+        }
+    echo display_list($file_post);
+    foreach ($file_post as $images) {
+      $query3 = $conn->prepare("INSERT gambar(id_kegiatan,image) VALUES(?,?)");
+      $query3->bind_param("is",$data['id'],$images);
+      $result4 = $query3->execute();
+    }
+    
 
     if(!$result){
       echo "<a href=\"input-kegiatan.php\"><button>Back to input page</button></a>";
