@@ -294,34 +294,11 @@
 				<div class="row">
 					<div class="menu">
 						<ul>
-						  <li><a href="hmj.html">Home</a></li>
-						  <li><a href="tentang.html">Tentang HMFH</a></li>
-						  <li><a href="UKM.html">Unit Kegiatan Mahasiswa</a></li>
-						  <li class="current-menu-item"><a href="Kegiatan.html">Kegiatan</a></li>
-						  <li><a href="glosarium.html">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
+						  <li><a href="hmj.php">Home</a></li>
+						  <li><a href="tentang.php">Tentang HMFH</a></li>
+						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
+						  <li class="current-menu-item"><a href="Kegiatan.php">Kegiatan</a></li>
+						  <li><a href="glosarium.php">Glosarium</a>
 						  </li>
 						</ul>
 			</div>
@@ -329,17 +306,37 @@
 				</div>
 				<div class="row">
 					<div class="body2">
+					<?php
+					require_once "db.php";
+
+					$conn = konek_db();
+					$query = $conn->prepare("select * from `website`.`kegiatan`");
+
+					$result= $query->execute();
+
+					if(!$result)
+						echo "Gagal Koneksi";
+
+					$rows = $query->get_result();
+					if($rows->num_rows == 0)
+					die("<p>Informasi news tidak ditemukan</p>");
+					$data = $rows->fetch_object();
+					if($data->poster == null)
+						$image = "img/none.png";
+						else
+						$image = "img/" . $data->poster;
+					?>
 						<div class="row">
 							<div class="img">
-								<img src="img/bg.jpg">
+								<img src="<?php echo $image;?>">
 							</div>
 							<div class="info">
 								<ul>
-								<li><b>Seminar</b>  &nbsp: Undang-undang Informasi dan Transaksi Elektronik</li><br>
-								<li><b>Faculty</b> &nbsp&nbsp&nbsp: Law</li><br>
-								<li><b>Speaker</b>	&nbsp&nbsp: Budiman & Budiman</li><br>
-								<li><b>Location</b> &nbsp: 6th floor Lippo Campus</li><br>
-								<li><b>Date & Time</b> 	: 24th July 2016, 13:00 - finish</li>
+								<li><b>Seminar</b>  &nbsp: <?php echo $data->title;?></li><br>
+								<li><b>Faculty</b> &nbsp&nbsp&nbsp: <?php echo $data->faculty;?></li><br>
+								<li><b>Speaker</b>	&nbsp&nbsp: <?php echo $data->speaker;?></li><br>
+								<li><b>Location</b> &nbsp: <?php echo $data->location;?></li><br>
+								<li><b>Date</b> 	: <?php echo $data->date;?></li>
 								</ul>
 
 							</div>
@@ -349,8 +346,7 @@
 								<h2>Seminar Conclusion</h2>
 							</div>
 							<div class="description">
-								<p>Dapat dikatakan sebagai suatu bentuk pelanggaran bila fasilitas online tersebut tidak/belum memperoleh izin penggunaan logo maupun nama dari pemilik logo sepak bola (lisensi) tersebut yang telah terdaftar (lihat website Dirjen HKI). Dan dapat dikatakan sebagai bukan sebuah bentuk pelanggaran apabila fasilitas online yang dimaksud telah memperoleh izin (lisensi) dalam hal untuk memproduksi dan memperbanyak serta memakai merek dari si pemilik merek yang telah terdaftar. Lebih jauh untuk mengetahui tentang pengalihan hak atas merek dapat dilihat pada Pasal 40 UU Merek.</p>
-								<p>Dapat dikatakan sebagai suatu bentuk pelanggaran bila fasilitas online tersebut tidak/belum memperoleh izin penggunaan logo maupun nama dari pemilik logo sepak bola (lisensi) tersebut yang telah terdaftar (lihat website Dirjen HKI). Dan dapat dikatakan sebagai bukan sebuah bentuk pelanggaran apabila fasilitas online yang dimaksud telah memperoleh izin (lisensi) dalam hal untuk memproduksi dan memperbanyak serta memakai merek dari si pemilik merek yang telah terdaftar. Lebih jauh untuk mengetahui tentang pengalihan hak atas merek dapat dilihat pada Pasal 40 UU Merek.</p>
+								<p><?php echo $data->conclusion;?></p>
 							</div>
 							<div class="des-header">
 								<h2>Photos</h2>
@@ -360,14 +356,32 @@
 
 
 						<div class="slider">
-							<div>
+							<!-- <div>
 								<a class="slide" onclick="plusDivs(-1)"><i class="fa fa-2x  fa-chevron-left"></i></a>
 								<a class= "slide" onclick="plusDivs(1)"><i class="fa fa-2x fa-chevron-right"></i></a>
-							</div>
+							</div> -->
+							<?php
+							require_once "db.php";
+
+							$conn = konek_db();
+							$query2 = $conn->prepare("select * from `website`.`gambar` where id_kegiatan=$data->id");
+
+							$result2= $query2->execute();
+
+							if(!$result2)
+								echo "Gagal Koneksi";
+
+							$rows2 = $query2->get_result();
+							if($rows2->num_rows == 0)
+							die("<p>Informasi news tidak ditemukan</p>");
+							$data2 = $rows->fetch_array();
 							
-							<img class="mySlides" src="img/1.jpg" width="1200" height="600" >
-							<img class="mySlides" src="img/1.jpeg" width="1200" height="600" >
-							<img class="mySlides" src="img/1.png" width="1200" height="600">
+							if($data2->image == null)
+								$image = "img/none.png";
+								else
+								$image = "img/" . $data2->image;
+							echo "<img class=\"mySlides\" src=\"$image\" width=\"1200\" height=\"600\" >";
+							?>
 						</div>
 
 						<div class="row">

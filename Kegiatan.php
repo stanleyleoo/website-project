@@ -310,8 +310,9 @@
 							if($row['id'] == 0){
 								echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
 							} else{
+								$seminar = "seminar.php?id=".$row['id'];
 								echo "<div class=\"seminar\">";
-								echo "<a href=\"seminar.html\"><img src=\"$url_poster\" ></a>";
+								echo "<a href=\"$seminar\"><img src=\"$url_poster\" ></a>";
 								echo "</div>";
 							}
 						}

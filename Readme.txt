@@ -13,5 +13,4 @@ username dan password user lain dapat dilihat pada halaman Admin
 	- Kegiatan page	(Category 5) : Menginput , edit  dan delete seminar  dan menampilkan						pada halaman kegiatan dan club.php
 	- Glosarium page(Category 6) : Menginput dan mendelete Undang-undang dan ditampilkan 						pada halaman Glosarium dan undang-undang.php
 
-NB: pada halaman kegiatan, foto yang terdapat pada halaman seminar belum dapat diupdate
-dan jika ingin menambahkan/ mengurangi jumlah gambar haruslah didelete id dan diinput id yang baru
+NB: pada halaman kegiatan, foto yang terdapat pada halaman seminar belum dapat ditampilkan dan pada input-kegiatan foto belum dapat diupdate dan pas penghapusan id seminar foto msi belum dapat dihapus dan semua itu msi dalam development
