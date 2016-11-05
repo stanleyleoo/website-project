@@ -29,7 +29,7 @@ if($rows->num_rows == 0)
 //hapus ukm
 // tarik gambar ukm
 $news = $rows->fetch_object();
-$image = $news->image;
+$image = $news->logo;
 if ($image != null && file_exists("img/$image")) {
 	//hapus image
 	unlink("img/$image");

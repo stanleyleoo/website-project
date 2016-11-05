@@ -55,6 +55,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			<textarea rows="20" cols="50" name="conclusion"></textarea><br>
 			<label>Poster :</label>
 			<input type="file" name="image"><br>
+			<label>Gambar:</label>
+			<input type="file" name="image2[]" multiple="multiple"><br>
 			<input type="submit" value="Submit">
 			</form>
 		<?php

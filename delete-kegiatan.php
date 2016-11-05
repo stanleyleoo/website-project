@@ -29,7 +29,7 @@ if($rows->num_rows == 0)
 //hapus ukm
 // tarik gambar ukm
 $kegiatan = $rows->fetch_object();
-$image = $kegiatan->image;
+$image = $kegiatan->poster;
 if ($image != null && file_exists("img/$image")) {
   //hapus image
   unlink("img/$image");

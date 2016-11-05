@@ -325,7 +325,7 @@
 									echo "<td><a href=\"$news\"><img src=\"$url_image\" style=\"margin-top:10px\" width=\"200\" height=\"144\"><br>".
 										$row['title']."</a></td>";
 									echo"</tr>";
-								}
+										}
 									?>
 								</table>
 								<div class="advertise">
