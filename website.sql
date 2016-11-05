@@ -30,14 +30,21 @@ CREATE TABLE `gambar` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_kegiatan` varchar(100) NOT NULL,
   `image` varchar(2048) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gambar`
 --
 
 /*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
+INSERT INTO `gambar` (`id`,`id_kegiatan`,`image`) VALUES 
+ (1,'20',''),
+ (2,'23',''),
+ (3,'24',''),
+ (4,'25','img/4.jpg'),
+ (5,'25','img/5.jpg'),
+ (6,'25','img/6.jpg');
 /*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
 
 
@@ -56,7 +63,7 @@ CREATE TABLE `kegiatan` (
   `conclusion` varchar(2000) NOT NULL,
   `poster` varchar(2048) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kegiatan`
@@ -64,7 +71,7 @@ CREATE TABLE `kegiatan` (
 
 /*!40000 ALTER TABLE `kegiatan` DISABLE KEYS */;
 INSERT INTO `kegiatan` (`id`,`title`,`faculty`,`speaker`,`location`,`date`,`conclusion`,`poster`) VALUES 
- (2,'djqcqwcq','nqndklwncew','kcnqknckwncq','cqnkcmwlnccw','2016-03-15','kwemkmweklfcmwcqwc','djqcqwcq.jpg');
+ (25,'fwejfj','jojewfjw','jfpwejpfjwp','jfpwejfwjf','1997-03-12','fwkfwnkwld','fwejfj.jpg');
 /*!40000 ALTER TABLE `kegiatan` ENABLE KEYS */;
 
 
@@ -80,7 +87,7 @@ CREATE TABLE `news` (
   `content` varchar(3000) NOT NULL,
   `image` varchar(5000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `news`
@@ -134,7 +141,7 @@ CREATE TABLE `ukm` (
   `howtojoin` varchar(200) NOT NULL,
   `logo` varchar(2048) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ukm`
@@ -142,7 +149,7 @@ CREATE TABLE `ukm` (
 
 /*!40000 ALTER TABLE `ukm` DISABLE KEYS */;
 INSERT INTO `ukm` (`id`,`title`,`faculty`,`leader`,`location`,`time`,`description`,`howtojoin`,`logo`) VALUES 
- (5,'Moot Court','Law','Budiman','Lippo Campus lantai 7','Saturday 1.30-5.00','Moot Court merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk memberikan tambahan pengetahuan bagi mahasiswa Fakultas Hukum agar dapat mengembangkan diri terutama dalam perwujudan konkrit dari mata kuliah hukum acara. Moot court ini akan menambah pengetahuan mahasiswa mengenai tugas hakim, jaksa, penasehat hukum serta kedudukan terdakwa   dan saksi-saksi. Moot court juga bertujuan agar mahasiswa hukum akrab dengan situasi persidangan\r\ntets.','Bagi yang berminat untuk mendaftar, silahkan menghubungi : Louis Fernando (15L2) / ID Line : louis_f ','Moot Court.jpg');
+ (5,'Moot Court','Law','Budiman','Lippo Campus lantai 7','Saturday 1.30-5.00','Moot Court merupakan salah satu Unit Kegiatan Mahasiswa (UKM) yang bertujuan untuk memberikan tambahan pengetahuan bagi mahasiswa Fakultas Hukum agar dapat mengembangkan diri terutama dalam perwujudan konkrit dari mata kuliah hukum acara. Moot court ini akan menambah pengetahuan mahasiswa mengenai tugas hakim, jaksa, penasehat hukum serta kedudukan terdakwa   dan saksi-saksi. Moot court juga bertujuan agar mahasiswa hukum akrab dengan situasi persidangan\r\ntets.','Bagi yang berminat untuk mendaftar, silahkan menghubungi : Louis Fernando (15L2) / ID Line : louis_f ','Moot Court.png');
 /*!40000 ALTER TABLE `ukm` ENABLE KEYS */;
 
 
@@ -191,8 +198,6 @@ CREATE TABLE `uu` (
 --
 
 /*!40000 ALTER TABLE `uu` DISABLE KEYS */;
-INSERT INTO `uu` (`id`,`nama`,`uu`) VALUES 
- (1,'test','test.pdf');
 /*!40000 ALTER TABLE `uu` ENABLE KEYS */;
 
 
