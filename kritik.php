@@ -26,8 +26,9 @@ if (isset($_POST["email"]) &&
       die("gagal kirim email");
 
   echo "kritik berhasil dikirim";
+  header("Location:hmj.php");
 }else{
-  header("hmj.html");
+  echo "Gagal mengirim email";
 }
 ?>
-<p><a href="hmj.html"><button>Back To HMFH Website</button></a></p>
+<p><a href="hmj.php"><button>Back To HMFH Website</button></a></p>

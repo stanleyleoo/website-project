@@ -25,10 +25,9 @@ if (isset($_POST["email"]) &&
   if (! $mail->send())
       die("gagal kirim email");
 
-  echo "saran berhasil dikirim";
-  header("Location: hmj.html");
+  header("Location: hmj.php");
 }else{
-  header("hmj.html");
+  echo "saran gagal dikirim";
 }
 ?>
-<p><a href="hmj.html"><button>Back To HMFH Website</button></a></p>
+<p><a href="hmj.php"><button>Back To HMFH Website</button></a></p>
