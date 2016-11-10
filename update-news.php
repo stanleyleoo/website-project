@@ -37,11 +37,12 @@ if(!$result)
 $rows = $query->get_result();
 if($rows->num_rows == 0)
 	die("news tidak detemukan");
-if(!isset($_POST['title']) || !isset($_POST['date']) || !isset($_POST['content']))
+if(!isset($_POST['title']) || !isset($_POST['date']) || !isset($_POST['preview']) || !isset($_POST['content']))
 		die("Data news tidak lengkap");
 
 $title = $_POST['title'];
 $date = $_POST['date'];
+$preview = $_POST['preview'];
 $content = $_POST['content'];
 
 $news = $rows->fetch_object();
@@ -71,8 +72,8 @@ $file_gambar='';
 }
 
 
-$query = $conn->prepare("update news set title=?,date=?,content=?,image=? where id=?");
-$query->bind_param('ssssi',$title,$date,$content,$file_gambar,$id);
+$query = $conn->prepare("update news set title=?,date=?,preview=?,content=?,image=? where id=?");
+$query->bind_param('sssssi',$title,$date,$preview,$content,$file_gambar,$id);
 $result=$query->execute();
 
 

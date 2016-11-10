@@ -47,7 +47,7 @@ die("<p>Informasi news tidak ditemukan</p>");
 
 $data = $rows->fetch_object();
 ?>
-<a href="input-new1.php"><button>Back to Input page</button></a>
+<a href="input-news1.php"><button>Back to Input page</button></a>
 <div class="wrapper">
 	<form method="post" action="update-news.php?id=<?php echo $data->id;?>" enctype="multipart/form-data">
 	<div>
@@ -63,8 +63,12 @@ $data = $rows->fetch_object();
 	<td><input type="Date" name="date" value="<?php echo $data->date?>"></td>
 	</tr>
 	<tr>
+	<th><label style="vertical-align:top;">Preview :</label></th>
+	<td><textarea cols="50" rows="10" name="preview"><?php echo $data->preview?></textarea></td>
+	</tr>
+	<tr>
 	<th><label style="vertical-align:top;">Content :</label></th>
-	<td><textarea cols="80" rows="30" name="content"><?php echo $data->content?></textarea></td>
+	<td><textarea cols="80" rows="20" name="content"><?php echo $data->content?></textarea></td>
 	</tr>
 	<tr>
 	<th><label style="vertical-align: top;">Image:</label></th>

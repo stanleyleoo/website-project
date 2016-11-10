@@ -45,6 +45,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			<input type="text" name="title"><br>
 			<label>Date:</label><br>
 			<input type="Date" name="date"><br>
+			<label>Preview:</label><br>
+			<textarea rows="5" cols="50" name="preview"></textarea><br>
 			<label>Content:</label><br>
 			<textarea rows="20" cols="50" name="content"></textarea><br>
 			<label>Image :</label>
@@ -69,6 +71,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			<th>ID</th>
 			<th>Title</th>
 			<th>Date</th>
+			<th>Preview</th>
 			<th>Content</th>
 			<th>Image</th>
 		<?php
@@ -84,6 +87,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			echo '<td>'. $row['id'] . '</td>';
 			echo '<td>'. $row['title'] . '</td>';
 			echo '<td>'. $row['date'] . '</td>';
+			echo '<td>'. $row['preview'] . '</td>';
 			echo '<td>'. $row['content'] . '</td>';
 			echo "<td><img src=\"$url_image\" style=\"width:600px;height:400px;\"></td>";
 			echo "<td><a href='".$url_edit."'><button>Edit</button></a>"; 
