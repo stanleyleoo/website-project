@@ -65,7 +65,8 @@ else {
 		// 	break;
 		// }
 	}else
-		die("password atau username salah");
+		header("Location:error.html");
+
 }
 
 

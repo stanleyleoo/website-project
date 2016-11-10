@@ -13,6 +13,8 @@
 		padding-bottom: 30px;
 		border:2px solid  #ff0000;
 		border-radius: 10%;
+		color: white;
+		background-color: #cc0000;
 	}
 	table{
 		margin:auto;
@@ -25,6 +27,22 @@
 	.image{
 		text-align: center;	
 	}
+	input[type="text"] {
+		border-color:red;
+		border: 2px solid white;
+	}
+	input[type="password"] {
+		border-color:red;
+		border: 2px solid white;
+	}
+	input[type="Submit"] {
+		margin-top: 10px;
+		border: 2px solid white;
+		width: 100px;
+		height: 40px;
+		color:white;
+		background-color: #ff0000;
+	}
 </style>
 </head>
 <body>
@@ -35,12 +53,14 @@
 <div class="wrapper">
 	<form method="post" action="login.php">
 		<table>	
-			<tr><th colspan="2" style="font-family: 'Times New Roman';"><h2>Login</h2></th></tr>
+			<tr><th colspan="2" style="font-family: 'Times New Roman';"><h2>LOGIN</h2></th></tr>
 			<tr>
 			<th><label>Username:</th><td><input type="text" name="username"></td></label><br>
 			</tr>
 			<tr>
 			<th><label>Password:</th><td><input type="Password" name="password"></td></label>
+			</tr>
+			<tr>
 			</tr>
 			<tr>
 			<td colspan="2"><label><input type="Submit" value="Login"></td></label>
