@@ -647,18 +647,18 @@
 						<td>
 							<form action="kritik.php" method="post">
 								<input type="radio" name="ks">Kritik
-								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><input type="text" name="kritik" placeholder="isi kritikan anda disini" >
+								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><textarea name="kritik" placeholder="isi kritikan anda disini"></textarea>
 								<br><input type="submit" value="Submit"></p>
 								<br>
 							</form>
 							<form action="saran.php" method="post">
 								<div class="radio">
 								<input type="radio" name="ks">Saran
-								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><input type="text" name="saran" placeholder="isi saran anda disini" >
-								<br><input type="submit" value="Submit"></p></td>
+								<br><p><input type="text" name="email" placeholder="Email Anda"><br><br><textarea name="saran" placeholder="isi saran anda disini" ></textarea>
+								<br><input type="submit" value="Submit"></p>
 								</div>
 							</form>
-							</td>
+						</td>
 						</tr>
 						<tr>
 						<th>Upcoming event</th>
