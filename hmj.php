@@ -619,7 +619,7 @@
 						echo "<a href=\"$news\"><img src=\"$url_image\" width=\"150\"></a></div>";
 						echo "<div class=\"news\"><h2><a href=\"$news\">".$row['title']."</a></h2>";
 						echo "<p style=\"color:#adad85;\">".date_format($date,"d F Y")."</p>";
-						echo "<p>" . $row['content']."</p>";
+						echo "<p>" . $row['preview']."&nbsp<a href = \"$news\">Read more...</a></p>";
 						echo "</div></div>";
 					}
 
@@ -661,11 +661,11 @@
 						</td>
 						</tr>
 						<tr>
-						<th>Upcoming event</th>
+						<!-- <th>Upcoming event</th>
 						</tr>
 						<tr>
 						<td><a href=""><img src="img/poster.jpg" width="200" height="250" style="padding:10px 8px 10px 15px;"></a></td>
-						</tr>
+						</tr> -->
 					</table>
 				</div>
 			</div>
