@@ -303,7 +303,11 @@
 								<h2><?php echo $data->nama;?></h2>
 								</div>
 								<div class="UU">
-								<embed src="<?php echo $uu;?>" width="500" height="375" type='application/pdf'>
+								<!-- <iframe src="<?php echo $uu;?>" width="880" height="1000" type='application/pdf'></iframe> -->
+								<!-- <object data="<?php echo $uu;?>" type="application/pdf" width="880" height="1000">
+								<a href="<?php echo $uu;?>">test.pdf</a> -->
+								<iframe src="http://docs.google.com/gview?url=<?php echo $uu;?>" style="width:600px; height:500px;" frameborder="0"></iframe>
+								</object>
 								</div>
 							</div>
 							<div class="right">

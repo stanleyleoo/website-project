@@ -36,10 +36,9 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['leader'])
     $query->bind_param("ssssssss",$title,$faculty,$leader,$location,$time,$description,$join,$file_gambar);
     $result = $query->execute();
     if(!$result){
-      echo "<a href=\"input-ukm.php\"><button>Back to input page</button></a>";
-      die ("Data UKM tidak berhasil diisi");
+      echo "<script type='text/javascript'>alert('Input UKM gagal');";
     } else{
-      header("Location:input-ukm.php");
+      echo "<script type='text/javascript'>alert('Input UKM Berhasil');window.location.href = 'input-ukm.php';</script>";
     }
 } else 
   die("Data Tidak Lengkap");

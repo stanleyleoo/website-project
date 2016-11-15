@@ -72,9 +72,9 @@
 
 
 		if($result)
-				header("Location:input-tentang1.php");
+				echo "<script type='text/javascript'>alert('Update Tentang Berhasil');window.location.href = 'input-tentang1.php';</script>";
 		else
-				echo "<p>Gagal mengupdate tentang</p>";
+				echo "<script type='text/javascript'>alert('Update News Gagal')";
 
 
 		// $id = mysqli_insert_id($conn);

@@ -81,9 +81,9 @@ $result=$query->execute();
 
 
 if($result)
-header("Location:input-ukm.php");
+echo "<script type='text/javascript'>alert('Informasi UKM Berhasil diUpdate');window.location.href = 'input-ukm.php';</script>";
 else
-echo "<p>Gagal mengupdate ukm</p>";
+echo "<script type='text/javascript'>alert('Gagal Mengupdate Informasi UKM');";
 
 ?>
 <a href="input-ukm.php"><button>Back to Input ukm</button></a>

@@ -78,9 +78,10 @@ $result=$query->execute();
 
 
 if($result)
-header("Location:input-news1.php");
+echo "<script type='text/javascript'>alert('Update News Berhasil');window.location.href = 'input-news1.php';</script>";
+
 else
-echo "<p>Gagal mengupdate news</p>";
+echo "<script type='text/javascript'>alert('Update News Gagal');";
 
 ?>
 <a href="input-news1.php"><button>Back to Input News</button></a>

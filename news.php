@@ -16,11 +16,12 @@
 		background: url("img/index.jpg") no-repeat;
 		background-size: cover;
 		background-attachment: fixed;
-	}
 
+	}
 	.wrapper{
 		width: 100%;
-		max-height: 6000px;
+		max-height: 10000px;
+
 	}
 	.wrapper:before,
 	.wrapper:after,
@@ -69,13 +70,13 @@
 	.body{
 		padding : 0px;
 	}
-	.body2{
+	.wrapper2{
+		background-color: #e0ebeb;
 		width: 1200px;
-		height: 1200px;
-		max-height: 3000px;
+		min-height: 1320px;
+		max-height: 10000px;
 		background-color: #e0ebeb;
 		margin:auto;
-		margin-top: -1px;
 	}
 	.right{
 		width: 300px;
@@ -114,8 +115,7 @@
 	}
 	.left{
 		width: 850px;
-		height: 1150px;
-		max-height: 1500px;
+		max-height: 10000px;
 		float: left;
 		background-color: white;
 		margin-top: 29px;
@@ -141,6 +141,7 @@
 	}
 	.left .news{
 		width: 650px;
+		max-height: 2000px;
 		text-align: left;
 		float: left;
 		padding-right: 20px;
@@ -153,7 +154,6 @@
 		border-bottom: 5px solid #ffa31a;
 	}
 	.news p{
-		
 		font-size: 20px;
 		font-family: "Times New Roman";
 	}
@@ -345,7 +345,7 @@ $data = $rows->fetch_object();
 			</div>
 			</div>
 			<div class="row">
-				<div class="body2">
+				<div class="wrapper2">
 					<div class="left">
 						<div class="row">
 							<div class="news-head">
@@ -366,17 +366,8 @@ $data = $rows->fetch_object();
 							</div>
 							<div class="news">
 								<p><?php echo $data->content?></p>
-							</div>
-							
+							</div>	
 						</div>
-						<!-- <div class="row">
-						<hr style="height:5px;background-color:#e0ebeb;">
-							<div class="komentar">
-								<label>Email anda :</label><br><input type="text" name="email"><br>
-								<label>Komentar anda :</label><br><textarea rows="5" cols="40" placeholder="insert your comments here"></textarea><br>
-									<input type="submit" name="submit" value="Submit">
-							</div>
-						</div> -->
 					</div>
 					<div class="right">
 						<table>

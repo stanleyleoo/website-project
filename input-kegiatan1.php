@@ -95,5 +95,6 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
 }else 
   die("Data Tidak Lengkap");
 ?>
+
 </body>
 </html>

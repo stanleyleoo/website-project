@@ -54,7 +54,7 @@ else {
 				}
 				// require_once "access.php";
 			}else {
-				header("Location:login.php");
+				header("Location:error.html");
 			}
 		
 

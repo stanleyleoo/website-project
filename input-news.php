@@ -33,11 +33,9 @@ if(isset($_POST['title']) && isset($_POST['date']) && isset($_POST['preview']) &
     $query->bind_param("sssss",$title,$date,$preview,$content,$file_gambar);
     $result = $query->execute();
     if(!$result){
-      die ("Data News tidak berhasil diisi");
-      echo "<a href=\"input-news1.php\">Back to input page</a>";
+      echo "<script type='text/javascript'>alert('Input News Gagal');window.location.href = 'input-news1.php';</script>";
     } else{
-      echo "Data news berhasil diisi<br>";
-      header("Location: input-news1.php");
+      echo "<script type='text/javascript'>alert('Input News Berhasil');window.location.href = 'input-news1.php';</script>";
     }
 } else 
   die("Koneksi gagal");

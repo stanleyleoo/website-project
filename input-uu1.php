@@ -32,8 +32,7 @@ if(isset($_POST['name'])){
             echo "<a href=\"input-uu.php\">Back to input page</a>";
       die ("Data Glosarium tidak berhasil diisi");
     } else{
-      echo "Data Glosarium berhasil diisi<br>";
-      header("Location: input-uu.php");
+      echo "<script type='text/javascript'>alert('Input Undang-Undang Berhasil');window.location.href = 'input-uu.php';</script>";
     }
 } else 
   die("Koneksi gagal");
