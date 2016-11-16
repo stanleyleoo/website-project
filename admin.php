@@ -58,6 +58,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 	<tr><th><label>Password</label><td>:</td></th><td><input type="password" name="password"></td></tr>	<br>
 	<tr><th><label>Category</label><td>:</td></th><td>
 		<select name="category">
+			<option>--Select--</option>
 			<option value="1">Admin</option>
 			<option value="2">News</option>
 			<option value="3">Tentang</option>

@@ -22,10 +22,9 @@ if(isset($_POST['name']) && isset($_POST['username']) && isset($_POST['password'
     $query->bind_param("ssss",$name,$username,$password,$category);
     $result = $query->execute();
     if(!$result){
-      die ("Data User tidak berhasil diisi");
-      echo "<a href=\"admin.php\">Back to Admin page</a>";
+      echo "<script type='text/javascript'>alert('Data Tidak Lengkap');window.location.href = 'admin.php';</script>";
     } else{
-      header("Location:admin.php");
+      echo "<script type='text/javascript'>alert('Input User Berhasil');window.location.href = 'admin.php';</script>";
     }
 } else 
   die("Koneksi gagal");

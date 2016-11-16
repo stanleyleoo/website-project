@@ -39,11 +39,10 @@ $query->bind_param('ssss',$name,$password,$category,$username);
 $result=$query->execute();
 
 if($result)
-header("Location:admin.php");
+echo "<script type='text/javascript'>alert('Update Berhasil');window.location.href = 'admin.php';</script>";
 else
-echo "<p>Gagl mengupdate user</p>";
+echo "<script type='text/javascript'>alert('Update Gagal');window.location.href = 'admin.php';</script>";
 
 ?>
-<a href="admin.php"><button>Back to Input News</button></a>
 </body>
 </html>

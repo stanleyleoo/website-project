@@ -29,8 +29,7 @@ if(isset($_POST['name'])){
     $query->bind_param("ss",$name,$file_uu);
     $result = $query->execute();
     if(!$result){
-            echo "<a href=\"input-uu.php\">Back to input page</a>";
-      die ("Data Glosarium tidak berhasil diisi");
+            echo "<script type='text/javascript'>alert('Input Undang-Undang Gagal Diisi');window.location.href = 'input-uu.php';</script>";
     } else{
       echo "<script type='text/javascript'>alert('Input Undang-Undang Berhasil');window.location.href = 'input-uu.php';</script>";
     }
