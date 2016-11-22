@@ -32,7 +32,7 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
           }
         }
         $file_poster2='';
-        $i = array(0,1,2,3,4,5,6,7,8,9);
+        $i = array(0,1,2,3,4,5,6,7,8,9,10);
         
     $query = $conn->prepare("INSERT kegiatan(title,faculty,speaker,location,date,conclusion,poster) VALUES(?,?,?,?,?,?,?)");
     $query->bind_param("sssssss",$title,$faculty,$speaker,$location,$date,$conclusion,$file_poster);
@@ -66,7 +66,7 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
               // lokasi directory tempat menyimpan file yang diupload
               $path = "img/";
 
-              $imgname = $path . $filename . '.' . $ext;
+              $imgname = $path . $title . '-' . $i . '.' . $ext;
               move_uploaded_file($_FILES['image2']['tmp_name'][$i], $imgname);
               // $extension = new SplFileInfo($image2['name']);
               // $extension = $extension->getExtension();

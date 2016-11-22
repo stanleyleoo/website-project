@@ -16,8 +16,9 @@ if(!isset($_GET['id']))
 
 $id =$_GET['id'];
 
-$query = $conn->prepare("select * from kegiatan where id=?");
+$query = $conn->prepare("select poster, image from kegiatan LEFT JOIN gambar ON gambar.id_kegiatan = kegiatan.id where kegiatan.id=?");
 $query->bind_param('i',$id);
+// $query->
 $result = $query->execute();
 
 if(!$result)
@@ -34,8 +35,16 @@ if ($image != null && file_exists("img/$image")) {
   //hapus image
   unlink("img/$image");
 }
+$i = 0;
+while($row = $rows->fetch_array()){
 
-$query = $conn->prepare("delete from kegiatan where id=?");
+	echo $row['image'] . " " . $i . "<br>";
+	if($row['image'] != null && $row['image'] != "" && file_exists($row['image'])){
+		unlink($row['image']);
+	}
+	$i++;
+}
+$query = $conn->prepare("delete kegiatan, gambar from kegiatan LEFT JOIN gambar ON gambar.id_kegiatan = kegiatan.id where kegiatan.id=?");
 $query->bind_param('i',$id);
 $result=$query->execute();
 

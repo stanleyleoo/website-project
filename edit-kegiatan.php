@@ -92,6 +92,10 @@ $data = $rows->fetch_object();
 	<th></th><td><input type="file" name="image"></td>
 	</tr>
 	<tr>
+	<th><label style="vertical-align: top;">Gambar:</label></th>
+	<td><input type="file" name="image2" multiple="multiple"></td>
+	</tr>
+	<tr>
 	<th></th><td><input type="submit"></td>
 	</tr>
 	</table>
