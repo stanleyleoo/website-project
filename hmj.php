@@ -649,7 +649,7 @@
 						?>
 					<ul class="news-nav">
 						<?php
-						if($total < 1)
+						if($total < 2)
 							echo "";
 						else{
 						//show all the page link with page number. When click on these numbers go to particular page. 

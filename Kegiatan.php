@@ -99,7 +99,7 @@
 		margin-top: 20px;
 	}
 	.right table{
-		margin: 10px 0 20px 25px;
+		margin: 5px 0 15px 25px;
 	}
 	.right table,th,td{
 		border:2px solid black;
@@ -134,7 +134,7 @@
 		color:white;
 		margin:auto;
 		text-align: center;
-		margin-top: -40px;
+		margin-top: -39px;
 	}
 	.footer h2{
 		padding-top:10px;
@@ -236,6 +236,31 @@
 			display:block;
 			z-index : 999;
 		}
+		.news-nav{
+			width: 900px;
+			height: 50px;
+			list-style-type: none;
+			padding-left: 450px;
+			float: left;
+		}
+		.news-nav ul{
+		display: block;
+		}
+		.news-nav li{
+			width: 22px;
+			height: 25px;
+			background-color: #ff6600;
+			color:white;
+			display: inline-block;
+			list-style-type: none;
+			margin-left: 10px;
+			padding-top: 5px;
+			text-align: center;
+		}	
+		.news-nav li a{
+			text-decoration: none;
+			color: black;
+		}	
 </style>
 </head>
 <body>
@@ -293,7 +318,7 @@
 				<div class="row">
 					<div class="body2">
 							<div class="left">
-							<?php
+							<!-- <?php
 							require_once "db.php";
 							$conn = konek_db();
 							$query = $conn->prepare("select * from kegiatan");
@@ -316,7 +341,78 @@
 								echo "</div>";
 							}
 						}
-							?>
+							?> -->
+							<?php
+									require_once "db.php";
+									$conn = konek_db();
+									$start=0;
+									$limit=9;
+									 
+									if(isset($_GET['page']))
+									{
+									    $page=$_GET['page'];
+									    $start=($page-1)*$limit;
+									}
+									else{
+									    $page=1;
+									}
+									//Fetch from database first 10 items which is its limit. For that when page open you can see first 10 items. 
+									$query = $conn->prepare("select * from kegiatan LIMIT $start, $limit");
+										$result = $query->execute();
+										if(!$result)
+											echo "result tidak ditemukan";
+										$rows = $query->get_result();
+										while($row = $rows->fetch_array()){
+										
+										if($row['poster'] == null || $row['poster'] == "")
+											$url_poster = "img/none.png";
+										else
+											$url_poster = "img/".$row['poster'];
+										if($row['id'] == 0){
+											echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
+										} else{
+											$seminar = "seminar.php?id=".$row['id'];
+											echo "<div class=\"seminar\">";
+											echo "<a href=\"$seminar\"><img src=\"$url_poster\" ></a>";
+											echo "</div>";
+										}
+									}
+									
+									
+									//fetch all the data from database.
+									$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`kegiatan`"));
+									//calculate total page number for the given table in the database 
+									$total=ceil($rows/$limit);
+									// if($page>1)
+									// {
+									//     //Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+									//     echo "<a href='?page=".($page-1)."' class='button' style='border:1px solid black;'>PREVIOUS</a>";
+									// }
+									// if($page!=$total)
+									// {
+									//     ////Go to previous page to show next 10 items.
+									//     echo "<a href='?page=".($page+1)."' class='button'>NEXT</a>";
+									// }
+									?>
+								<ul class="news-nav">
+									<?php
+									if($total < 2)
+										echo "";
+									else{
+									//show all the page link with page number. When click on these numbers go to particular page. 
+									        for($i=1;$i<=$total;$i++)
+									        {
+									            if($i==$page) { 
+									            	echo "
+										            			<li class='current'>".$i."</li>
+									            		"; 
+									            	}
+									             
+									            else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
+									        }
+									       }
+									?>
+								</ul>
 							</div>
 							<div class="right">
 								<table>
@@ -348,9 +444,6 @@
 									}
 									?>
 								</table>
-								<div class="advertise">
-									<img src="img/ad.jpg">
-								</div>
 							</div>
 					</div>'
 						<div class="row">

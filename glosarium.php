@@ -66,7 +66,7 @@
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		max-height: 5000px;
+		max-height: 6000px;
 		margin-top: -1px;
 	}
 	.left{
