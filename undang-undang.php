@@ -305,10 +305,10 @@
 								<div class="UU">
 								<!-- <iframe src="<?php echo $uu;?>" width="880" height="1000" type='application/pdf'></iframe> -->
 								<!-- <object data="<?php echo $uu;?>" type="application/pdf" width="880" height="1000"></object> -->
-								<img src="<?php echo $uu;?>" width="500">
+								<!-- <img src="<?php echo $uu;?>" width="500"> -->
 								<!-- <a href="<?php echo $uu;?>">test.pdf</a> -->
 								<!-- <iframe src="http://docs.google.com/gview?url=<?php echo $uu;?>" style="width:600px; height:500px;" frameborder="0"></iframe> -->
-								<!-- <embed src="<?php echo $uu;?>" width="500" height="1000" type="application/pdf"></embed> -->
+								<embed src="<?php echo $uu;?>" width="500" height="1000" type="application/pdf"></embed>
 								</div>
 							</div>
 							<div class="right">

@@ -287,29 +287,6 @@
 						  <li><a href="UKM.php">Unit Kegiatan Mahasiswa</a></li>
 						  <li class="current-menu-item"><a href="Kegiatan.php">Kegiatan</a></li>
 						  <li><a href="glosarium.php">Glosarium</a>
-							  <!-- <ul>
-							      <li class="dir"><a href="#">Sub Menu 1</a>
-							      	<ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li class="dir"><a href="#">Sub Menu 2</a>
-							        <ul>
-							          <li><a href="#">Category 1</a></li>
-							          <li><a href="#">Category 2</a></li>
-							          <li><a href="#">Category 3</a></li>
-							          <li><a href="#">Category 4</a></li>
-							          <li><a href="#">Category 5</a></li>
-							        </ul>
-							      </li>
-							      <li><a href="#">Sub Menu 3</a></li>
-							      <li><a href="#">Sub Menu 4</a></li>
-							      <li><a href="#">Sub Menu 5</a></li>
-						    </ul> -->
 						  </li>
 						</ul>
 			</div>
@@ -318,30 +295,6 @@
 				<div class="row">
 					<div class="body2">
 							<div class="left">
-							<!-- <?php
-							require_once "db.php";
-							$conn = konek_db();
-							$query = $conn->prepare("select * from kegiatan");
-							$result = $query->execute();
-							if(!$result)
-								echo "result tidak ditemukan";
-							$rows = $query->get_result();
-							while($row = $rows->fetch_array()){
-							
-							if($row['poster'] == null || $row['poster'] == "")
-								$url_poster = "img/none.png";
-							else
-								$url_poster = "img/".$row['poster'];
-							if($row['id'] == 0){
-								echo "<p style=\"font-size: 100px;padding-left: 120px;\">Coming Soon !!!</p>";
-							} else{
-								$seminar = "seminar.php?id=".$row['id'];
-								echo "<div class=\"seminar\">";
-								echo "<a href=\"$seminar\"><img src=\"$url_poster\" ></a>";
-								echo "</div>";
-							}
-						}
-							?> -->
 							<?php
 									require_once "db.php";
 									$conn = konek_db();

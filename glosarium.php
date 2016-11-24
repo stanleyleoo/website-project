@@ -68,6 +68,7 @@
 		width: 1200px;
 		max-height: 6000px;
 		margin-top: -1px;
+		overflow: hidden;
 	}
 	.left{
 		width: 900px;
@@ -245,6 +246,31 @@
 			text-decoration:none;
 			color:black;
 		}
+		.news-nav{
+			width: 900px;
+			height: 50px;
+			list-style-type: none;
+			padding-left: 450px;
+			float: left;
+		}
+		.news-nav ul{
+		display: block;
+		}
+		.news-nav li{
+			width: 22px;
+			height: 25px;
+			background-color: #ff6600;
+			color:white;
+			display: inline-block;
+			list-style-type: none;
+			margin-left: 10px;
+			padding-top: 5px;
+			text-align: center;
+		}	
+		.news-nav li a{
+			text-decoration: none;
+			color: black;
+		}	
 </style>
 </head>
 <body>
@@ -280,7 +306,7 @@
 								<div class="head">
 								<h2>Undang Undang</h2>
 								</div>
-								<?php
+								<!-- <?php
 								require_once "db.php";
 								$conn = konek_db();
 								$query = $conn->prepare("select * from `website`.`uu` ORDER BY id ASC");
@@ -295,7 +321,59 @@
 									echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
 									echo "</div>";
 								}	
-								?>
+								?> -->
+								<?php
+									require_once "db.php";
+									$conn = konek_db();
+									$start=0;
+									$limit=10;
+									 
+									if(isset($_GET['page']))
+									{
+									    $page=$_GET['page'];
+									    $start=($page-1)*$limit;
+									}
+									else{
+									    $page=1;
+									}
+									//Fetch from database first 10 items which is its limit. For that when page open you can see first 10 items. 
+									$query = $conn->prepare("select * from `website`.`uu` ORDER BY id ASC LIMIT $start, $limit");
+										$result = $query->execute();
+										if(!$result)
+											echo "result tidak ditemukan";
+										$rows = $query->get_result();
+										while ($row = $rows->fetch_array()) {
+											$uu = "undang-undang.php?id=".$row['id'];
+											echo "<div class=\"undang-undang\">";
+											echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
+											echo "</div>";
+										}
+									
+									
+									//fetch all the data from database.
+									$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`kegiatan`"));
+									//calculate total page number for the given table in the database 
+									$total=ceil($rows/$limit);
+									?>
+								<ul class="news-nav">
+									<?php
+									if($total < 2)
+										echo "";
+									else{
+									//show all the page link with page number. When click on these numbers go to particular page. 
+									        for($i=1;$i<=$total;$i++)
+									        {
+									            if($i==$page) { 
+									            	echo "
+										            			<li class='current'>".$i."</li>
+									            		"; 
+									            	}
+									             
+									            else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
+									        }
+									       }
+									?>
+								</ul>
 							</div>
 							<div class="right">
 								<table>
