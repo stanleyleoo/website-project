@@ -64,10 +64,10 @@
 	.body2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		height: 1000px;
-		max-height: 5000px;
+		max-height: 8000px;
 		margin:auto;
 		margin-top: -1px;
+		overflow: hidden;
 	}
 	.left{
 		width: 900px;

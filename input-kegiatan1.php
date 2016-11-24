@@ -56,6 +56,7 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
     if(isset($_FILES['image2'])){
         $countarray = count($_FILES['image2']['name']);
         echo $countarray;
+        $o = 1;
         for($i=0;$i<$countarray;$i++){
           // $image = $_FILES['image2'][$i];
           if($_FILES['image2']['error'][$i] == 0) {
@@ -66,13 +67,14 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
               // lokasi directory tempat menyimpan file yang diupload
               $path = "img/";
 
-              $imgname = $path . $title . '-' . $i . '.' . $ext;
+              $imgname = $path . $title . '-' . $o . '.' . $ext;
               move_uploaded_file($_FILES['image2']['tmp_name'][$i], $imgname);
               // $extension = new SplFileInfo($image2['name']);
               // $extension = $extension->getExtension();
               // $file_poster2 = $image2['name'] . '.' . $extension;
               // copy($image2['tmp_name'], 'img/' . $file_poster2);
               array_push($file_post, $imgname);//eh bisa gini ga ya kwkwkwkw w ga rau  wkwkkwwk
+              $o++;
             }
           }
         }else {

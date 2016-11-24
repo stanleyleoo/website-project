@@ -12,7 +12,7 @@
 	}
 	.wrapper{
 		width: 100%;
-		max-height: 6000px;
+		max-height: 10000px;
 	}
 	.wrapper:before,
 	.wrapper:after,
@@ -27,7 +27,7 @@
 	}
 	.body{
 		width: 1200px;
-		max-height: 2500px;
+		max-height: 10000px;
 		margin: auto;
 	}
 	.header{
@@ -60,16 +60,16 @@
 	}
 	
 	.body2{
-		background-color: #e0ebeb;
 		width: 1200px;
-		height: 1529px;
-		max-height: 2000px;
+		max-height: 6000px;
+		background-color: #e0ebeb;
 		margin:auto;
 		margin-top: -1px;
+		overflow: hidden;
 	}
 	.left{
 		width: 300px;
-		height: 1000px;
+		max-height: 1000px;
 		float: left;
 		background-color: #e0ebeb;
 		margin-top: 20px;
@@ -104,13 +104,12 @@
 	}
 	.center{
 		width: 600px;
-		height: 1480px;
-		max-height: 3000px;
+		max-height: 6000px;
 		float: left;
-		/*background-color: #002b80;*/
 		background-color: #eaeae1;
 		margin-top: 29px;
 		border:2px solid black;
+		margin-bottom: 10px;
 	}
 	.center .news-head h2{
 		padding-left: 40px;
@@ -145,7 +144,6 @@
 		height: 200px;
 		float:right;
 		overflow: hidden;
-
 	}
 	.news-option .news h2{
 		margin-top:12px;
@@ -160,162 +158,173 @@
 	.news-option .news p{
 		margin-top:-10px;
 		font-family: "Times new Roman";
-
 	}
 	.center .news-nav{
 		width: 600px;
 		height: 50px;
-		padding-left: 470px;
+		list-style-type: none;
+		padding-left: 250px;
 	}
-	.center input[type="button"]{
-		width: 100px;
-		height: 30px;
+	.center .news-nav ul{
+		display: block;
+	}
+	.center .news-nav li{
+		width: 22px;
+		height: 25px;
 		background-color: #ff6600;
 		color:white;
-		margin-top: 8px;
-	}		
+		display: inline-block;
+		list-style-type: none;
+		margin-left: 10px;
+		padding-top: 5px;
+		text-align: center;
+	}	
+	.center .news-nav li a{
+		text-decoration: none;
+		color: black;
+	}	
 	
-/* General */
-#css3-slider {
-  margin:0px auto;
-  padding:0px 0px;
-  width:100%;
-  height:550px;
-  position:relative;
-  overflow: hidden;
-}
+	/* General */
+	#css3-slider {
+	  margin:0px auto;
+	  padding:0px 0px;
+	  width:100%;
+	  height:550px;
+	  position:relative;
+	  overflow: hidden;
+	}
 
-#css3-slider li {
-  list-style:none;
-  margin:0px 0px;
-  padding:0px 0px;
-}
+	#css3-slider li {
+	  list-style:none;
+	  margin:0px 0px;
+	  padding:0px 0px;
+	}
 
-/* Navigation */
-#css3-slider li input + label {
-  position:absolute;
-  bottom:5px;
-  left:10px;
-  z-index:999;
-  font:bold 11px/16px Arial,Sans-Serif;
-  background-color:black;
-  color:white;
-  padding:0px 0px;
-  width:16px;
-  text-align:center;
-  cursor:pointer;
-}
+	/* Navigation */
+	#css3-slider li input + label {
+	  position:absolute;
+	  bottom:5px;
+	  left:10px;
+	  z-index:999;
+	  font:bold 11px/16px Arial,Sans-Serif;
+	  background-color:black;
+	  color:white;
+	  padding:0px 0px;
+	  width:16px;
+	  text-align:center;
+	  cursor:pointer;
+	}
 
-#css3-slider li:nth-child(2) label {left:28px;}
-#css3-slider li:nth-child(3) label {left:46px;}
-#css3-slider li:nth-child(4) label {left:64px;}
-#css3-slider li:nth-child(5) label {left:82px;}
+	#css3-slider li:nth-child(2) label {left:28px;}
+	#css3-slider li:nth-child(3) label {left:46px;}
+	#css3-slider li:nth-child(4) label {left:64px;}
+	#css3-slider li:nth-child(5) label {left:82px;}
 
-/* Images */
-#css3-slider li img {
-  border:none;
-  outline:none;
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:0px;
-  height:0px;
-  visibility:hidden;
-  opacity:0;
-  /*-webkit-transition:all 2s ease-in-out;
-  -moz-transition:all 2s ease-in-out;
-  -ms-transition:all 2s ease-in-out;
-  -o-transition:all 2s ease-in-out;
-  transition:all 2s ease-in-out;
-  -webkit-transform:rotate(0deg) scale(0);
-  -moz-transform:rotate(0deg) scale(0);
-  -ms-transform:rotate(0deg) scale(0);
-  -o-transform:rotate(0deg) scale(0);
-  transform:rotate(0deg) scale(0);*//*
-  animation-duration: 1s infinite;
-  animation-fill-mode: both;
-  animation-name:fadeInLeft;
-            webkit-animation-name:fadeInLeft;*/
+	/* Images */
+	#css3-slider li img {
+	  border:none;
+	  outline:none;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  width:0px;
+	  height:0px;
+	  visibility:hidden;
+	  opacity:0;
+	  /*-webkit-transition:all 2s ease-in-out;
+	  -moz-transition:all 2s ease-in-out;
+	  -ms-transition:all 2s ease-in-out;
+	  -o-transition:all 2s ease-in-out;
+	  transition:all 2s ease-in-out;
+	  -webkit-transform:rotate(0deg) scale(0);
+	  -moz-transform:rotate(0deg) scale(0);
+	  -ms-transform:rotate(0deg) scale(0);
+	  -o-transform:rotate(0deg) scale(0);
+	  transform:rotate(0deg) scale(0);*//*
+	  animation-duration: 1s infinite;
+	  animation-fill-mode: both;
+	  animation-name:fadeInLeft;
+	            webkit-animation-name:fadeInLeft;*/
 
-}
+	}
 
-/* Captions */
-#css3-slider a {
-  text-decoration:none !important;
-}
+	/* Captions */
+	#css3-slider a {
+	  text-decoration:none !important;
+	}
 
-#css3-slider li a span {
-  cursor:default;
-  display:block;
-  position:absolute;
-  right:0px;
-  bottom:0px;
-  left:0px;
-  background-color:rgba(0,0,0,0.8);
-  font:normal 20px/28px Arial,Sans-Serif;
-  color:white;
-  padding:0px 10px;
-  text-align:right;
-  opacity:0;
-  --!visibility:hidden;!--
-  /*-webkit-transition:all 2s ease-in-out;
-  -moz-transition:all 2s ease-in-out;
-  -ms-transition:all 2s ease-in-out;
-  -o-transition:all 2s ease-in-out;
-  transition:all 2s ease-in-out;*/
-}
+	#css3-slider li a span {
+	  cursor:default;
+	  display:block;
+	  position:absolute;
+	  right:0px;
+	  bottom:0px;
+	  left:0px;
+	  background-color:rgba(0,0,0,0.8);
+	  font:normal 20px/28px Arial,Sans-Serif;
+	  color:white;
+	  padding:0px 10px;
+	  text-align:right;
+	  opacity:0;
+	  --!visibility:hidden;!--
+	  /*-webkit-transition:all 2s ease-in-out;
+	  -moz-transition:all 2s ease-in-out;
+	  -ms-transition:all 2s ease-in-out;
+	  -o-transition:all 2s ease-in-out;
+	  transition:all 2s ease-in-out;*/
+	}
 
-/* Active navigation */
-#css3-slider li input:checked + label {
-  background-color:#39f;
-  color:white;
-}
+	/* Active navigation */
+	#css3-slider li input:checked + label {
+	  background-color:#39f;
+	  color:white;
+	}
 
-/* Show the image with transition */
-#css3-slider li input:checked ~ img,
-#css3-slider li input:checked ~ a img {
-  top:0%;
-  left:0%;
-  width:100%;
-  height:550px;
-  visibility:visible;
-/*  -webkit-transform:rotate(720deg) scale(1);
-  -moz-transform:rotate(720deg) scale(1);
-  -ms-transform:rotate(720deg) scale(1);
-  -o-transform:rotate(720deg) scale(1);
-  transform:rotate(720deg) scale(1);*/
-  animation-duration: 2s;
-  animation-fill-mode: both;
-  animation-name:fade;
-            webkit-animation-name:fade;
-  opacity:1;
-  z-index:99;
-}
+	/* Show the image with transition */
+	#css3-slider li input:checked ~ img,
+	#css3-slider li input:checked ~ a img {
+	  top:0%;
+	  left:0%;
+	  width:100%;
+	  height:550px;
+	  visibility:visible;
+	/*  -webkit-transform:rotate(720deg) scale(1);
+	  -moz-transform:rotate(720deg) scale(1);
+	  -ms-transform:rotate(720deg) scale(1);
+	  -o-transform:rotate(720deg) scale(1);
+	  transform:rotate(720deg) scale(1);*/
+	  animation-duration: 2s;
+	  animation-fill-mode: both;
+	  animation-name:fade;
+	            webkit-animation-name:fade;
+	  opacity:1;
+	  z-index:99;
+	}
 
-/* Show the caption with fade effect */
-#css3-slider li input:checked ~ a span {
-  opacity:1;
-  z-index:100;
-}
+	/* Show the caption with fade effect */
+	#css3-slider li input:checked ~ a span {
+	  opacity:1;
+	  z-index:100;
+	}
 
-/* Hide the radio */
-#css3-slider input {
-  display:none;
-}
-@keyframes fade
-		{
-		  from {
-		    opacity: 0;
-		  }
+	/* Hide the radio */
+	#css3-slider input {
+	  display:none;
+	}
+	@keyframes fade
+			{
+			  from {
+			    opacity: 0;
+			  }
 
-		  to {
-		    opacity: 1;
-		  }
-		}
+			  to {
+			    opacity: 1;
+			  }
+			}
 
 	.right{	
 		width: 290px;
-		height: 1000px;
+		max-height: 1000px;
 		float: left;
 		background-color: #e0ebeb;
 		padding-top: 18px;
@@ -487,12 +496,7 @@
 		 new WOW().init();
 	</script>
 </head>
-<body>
-
-	
-
-
-		
+<body>	
 <div class="wrapper">
 	<div class="body">
 		<div class="row">
@@ -549,13 +553,10 @@
 					 // } 
 						$i++;
 					}
-				
-				
 				?>
 				</ul>
 			</div>
 		</div>
-		<div class="row">
 			<div class="body2">
 				<div class="left">
 					<table>
@@ -596,21 +597,28 @@
 						<h2>News</h2>
 					</div>
 					<?php
-					require_once "db.php";
-
-					$conn = konek_db();
-					$query = $conn->prepare("select * from `website`.`news` ORDER BY date DESC");
-
-					$result= $query->execute();
-
-					if(!$result)
-						echo "Gagal Koneksi";
-
-					$rows = $query->get_result();
-					while($row = $rows->fetch_array()){
-					if($row['image'] == null || $row['image'] == "")
-						$url_image = "img/none.png";
-					else
+						require_once "db.php";
+						$conn = konek_db();
+						$start=0;
+						$limit=10;
+						 
+						if(isset($_GET['page']))
+						{
+						    $page=$_GET['page'];
+						    $start=($page-1)*$limit;
+						}
+						else{
+						    $page=1;
+						}
+						//Fetch from database first 10 items which is its limit. For that when page open you can see first 10 items. 
+						$query=$conn->prepare("select * from `website`.`news` ORDER BY date DESC LIMIT $start, $limit");
+						$result= $query->execute();
+						//print 10 items
+						$rows = $query->get_result();
+						while($row = $rows->fetch_array()){
+							if($row['image'] == null || $row['image'] == "")
+								$url_image = "img/none.png";
+							else
 						$url_image = "img/".$row['image'];
 						$date = date_create($row['date']);
 						$news = "news.php?id=".$row['id'];
@@ -619,18 +627,45 @@
 						echo "<a href=\"$news\"><img src=\"$url_image\" width=\"150\"></a></div>";
 						echo "<div class=\"news\"><h2><a href=\"$news\">".$row['title']."</a></h2>";
 						echo "<p style=\"color:#adad85;\">".date_format($date,"d F Y")."</p>";
-						echo "<p>" . $row['preview']."&nbsp<a href = \"$news\">Read more...</a></p>";
+						echo "<p style='text-align:justify;margin-right:10px;'>" . $row['preview']."&nbsp<a href = \"$news\">Read more...</a></p>";
 						echo "</div></div>";
 					}
-
-
-
-					?>
-					<div class="row">
-						<!-- <div class="news-nav">
-							<input type="button" name="next" value="Next">
-						</div> -->
-					</div>
+						
+						
+						//fetch all the data from database.
+						$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`news`"));
+						//calculate total page number for the given table in the database 
+						$total=ceil($rows/$limit);
+						// if($page>1)
+						// {
+						//     //Go to previous page to show previous 10 items. If its in page 1 then it is inactive
+						//     echo "<a href='?page=".($page-1)."' class='button' style='border:1px solid black;'>PREVIOUS</a>";
+						// }
+						// if($page!=$total)
+						// {
+						//     ////Go to previous page to show next 10 items.
+						//     echo "<a href='?page=".($page+1)."' class='button'>NEXT</a>";
+						// }
+						?>
+					<ul class="news-nav">
+						<?php
+						if($total < 1)
+							echo "";
+						else{
+						//show all the page link with page number. When click on these numbers go to particular page. 
+						        for($i=1;$i<=$total;$i++)
+						        {
+						            if($i==$page) { 
+						            	echo "
+							            			<li class='current'>".$i."</li>
+						            		"; 
+						            	}
+						             
+						            else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
+						        }
+						       }
+						?>
+					</ul>
 				</div>
 				<div class="right">
 					<table>
@@ -660,20 +695,14 @@
 							</form>
 						</td>
 						</tr>
-						<tr>
-						<!-- <th>Upcoming event</th>
-						</tr>
-						<tr>
-						<td><a href=""><img src="img/poster.jpg" width="200" height="250" style="padding:10px 8px 10px 15px;"></a></td>
-						</tr> -->
 					</table>
 				</div>
 			</div>
+		<div class="footer">
+			<h2>&copy2016 by HMFH UPH MEDAN</h2>
 		</div>
 	</div>
-	<div class="footer">
-	<h2>&copy2016 by HMFH UPH MEDAN</h2>
-	</div>
+	
 </div>
 <script type="text/javascript">
 var myIndex = 0;
