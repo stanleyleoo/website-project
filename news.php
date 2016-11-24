@@ -73,10 +73,11 @@
 	.wrapper2{
 		background-color: #e0ebeb;
 		width: 1200px;
-		min-height: 1320px;
 		max-height: 10000px;
 		background-color: #e0ebeb;
 		margin:auto;
+		overflow: hidden;
+
 	}
 	.right{
 		width: 300px;
@@ -120,6 +121,7 @@
 		background-color: white;
 		margin-top: 29px;
 		margin-left:40px;
+		margin-bottom: 20px;
 	}
 	.left h3{
 		padding-left: 40px;
@@ -356,7 +358,7 @@ $data = $rows->fetch_object();
 								else
 								$image = "img/" . $data->image;
 							?>
-							<img src="<?php echo $image;?>" width="900">
+							<img src="<?php echo $image;?>" width="850">
 						</div>	
 						<div class="row">
 							<div class="button">
@@ -400,9 +402,6 @@ $data = $rows->fetch_object();
 							
 								?>
 						</table>
-						<div class="advertise">
-						<img src="img/ad.jpg">
-						</div>
 					</div>
 				</div>
 			</div>

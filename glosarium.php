@@ -294,8 +294,7 @@
 									echo "<div class=\"undang-undang\">";
 									echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
 									echo "</div>";
-								}
-									
+								}	
 								?>
 							</div>
 							<div class="right">
