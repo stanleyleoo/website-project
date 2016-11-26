@@ -244,10 +244,17 @@
 			text-decoration:none;
 			color:black;
 		}
-		.UU{
+		#UU{
 			margin-top: 10px;
 			padding-left: 20px;
 		}
+		input[type="button"]:hover{
+			color: white;
+			background-color:#e65c00;
+			transition: 0.5s ease;
+		}
+
+
 </style>
 </head>
 <body>
@@ -302,13 +309,15 @@
 								<div class="head">
 								<h2><?php echo $data->nama;?></h2>
 								</div>
-								<div class="UU">
+								<div id="UU">
 								<!-- <iframe src="<?php echo $uu;?>" width="880" height="1000" type='application/pdf'></iframe> -->
 								<!-- <object data="<?php echo $uu;?>" type="application/pdf" width="880" height="1000"></object> -->
 								<!-- <img src="<?php echo $uu;?>" width="500"> -->
 								<!-- <a href="<?php echo $uu;?>">test.pdf</a> -->
-								<!-- <iframe src="http://docs.google.com/gview?url=<?php echo $uu;?>" style="width:600px; height:500px;" frameborder="0"></iframe> -->
-								<embed src="<?php echo $uu;?>" width="500" height="1000" type="application/pdf"></embed>
+								<!-- <iframe src="http://docs.google.com/gview?url=<?php echo $uu;?>" style="width:600px; height:500px;" frameborder="0"></iframe> --> 
+								<embed src="<?php echo $uu;?>" width="880" height="1000" type="application/pdf" />
+								<!-- <a class="media" href="<?php echo $uu;?>">PDF File</a> --><!-- 
+								<iframe src = "UU/tst.pdf" width='880' height='1000' allowfullscreen webkitallowfullscreen></iframe>  -->
 								</div>
 							</div>
 							<div class="right">
@@ -343,6 +352,12 @@
 								</table>
 							</div>
 							<div class="row">
+
+							<h2 style="text-align: center;">Or<br>Click Here to Download</h2>
+							<p>
+							<input type="button" value="Download" style="width: 200px;height: 50px;font-size: 20px; border-radius: 10px;text-align:center;margin-left: 42%;border: 1px solid #ff9900;" onclick="window.location.href='<?php echo $uu;?>'">
+							</div>
+							<div class="row">
 								<div class="footer">
 								<h2>&copy2016 by HMFH UPH MEDAN</h2>
 								</div>
@@ -354,5 +369,7 @@
 		</div>
 	</div>
 </div>
+<script src="/js/pdfobject.js"></script>
+<script>PDFObject.embed("uu/", "#UU");</script>
 </body>
 </html>

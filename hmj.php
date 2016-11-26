@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
 	<title>HMF HUKUM UPH MEDAN</title>
 <style>
 	body{

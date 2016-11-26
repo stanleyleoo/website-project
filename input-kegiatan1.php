@@ -92,7 +92,7 @@ if(isset($_POST['title']) && isset($_POST['faculty']) && isset($_POST['speaker']
       echo "<a href=\"input-kegiatan.php\"><button>Back to input page</button></a>";
       die ("Data Kegiatan tidak berhasil diisi");
     } else{
-      header("Location:input-kegiatan.php");
+      echo "<script type='text/javascript'>alert('Input Kegiatan Berhasil');window.location.href = 'input-kegiatan.php';</script>";
     }
 }else 
   die("Data Tidak Lengkap");

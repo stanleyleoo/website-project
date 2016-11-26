@@ -31,6 +31,11 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     $query = $conn->prepare("select poster, image from kegiatan LEFT JOIN gambar ON gambar.id_kegiatan = kegiatan.id where kegiatan.id=?");
     $query->bind_param('i', $id);
     $result = $query->execute();
+    $query->bind_result($poster, $col2);
+    $image = array();
+    while ($query->fetch()) {
+      array_push($image, $col2);
+    }
 
     if (!$result)
         die("Gagal query");
@@ -47,30 +52,16 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     $date = $_POST['date'];
     $conclusion = $_POST['conclusion'];
 
-    $kegiatan = $rows->fetch_object();
+    // $kegiatan = $rows->fetch_object();
     if ($_FILES['image']['error'] == 0) {
-
-//hapus gambar lama
-        $image = $kegiatan->poster;
-        if ($image != null && file_exists("img/$image")) {
-            unlink("img/$image");
+        if ($poster != null && file_exists("img/$poster")) {
+            unlink("img/$poster");
             echo "<p>delete image</p> \n";
         }
-        while($row = $rows->fetch_array()){
-            echo $row['image'] . " gambar " . $i . "<br>";
-            if($row['image'] != null && $row['image'] != "" && file_exists($row['image'])){
-                unlink($row['image']);
-                echo "<p>delete gambar $i</p> \n";
-            }
-            $i++;
-        }
-
-        
         $file_gambar = '';
         if (isset($_FILES['image'])) {
             if ($_FILES['image']['error'] == 0) {
                 $image = $_FILES['image'];
-
                 $extension = new SplFileInfo($image['name']);
                 $extension = $extension->getExtension();
                 $file_gambar = $title . '.' . $extension;
@@ -88,7 +79,13 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     $file_post = array();
     if (isset($_FILES['image2'])) {
         $i = 0;
-        
+        for ($i=0; $i < count($image); $i++) { 
+            echo $image[$i] . " " . $i . "<br>";
+            if($image[$i] != null && $image[$i] != "" && file_exists($image[$i])){
+                unlink($image);
+            }
+        }
+
         $countarray = count($_FILES['image2']['name']);
         echo "<p>" . $countarray . " jumlah gambar </p>";
         $o = 1;
@@ -136,10 +133,10 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     echo "$result <= update data master \n";
 
 
-    // if ($result)
-    //     header("Location:input-kegiatan.php");
-    // else
-    //     echo "<p>Gagal mengupdate kegiatan</p>";
+    if ($result)
+        echo "<script type='text/javascript'>alert('Update Kegiatan Berhasil');window.location.href = 'input-kegiatan.php';</script>";
+    else
+        echo "<p>Gagal mengupdate kegiatan</p>";
     ?>
     <a href="input-kegiatan.php"><button>Back to Input Kegiatan</button></a>
 </body>
