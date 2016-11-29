@@ -81,7 +81,6 @@
 		width: 1200px;
 		max-height: 10000px;
 		margin:auto;
-		margin-top: -1px;
 	}
 	a{
 		text-decoration: none;
@@ -89,7 +88,7 @@
 	}
 	a:hover{
 		color:#ff751a;
-		transition: 0.3s ease
+		transition: 0.3s ease;
 	}
 	.club{
 		width: 400px;
@@ -240,7 +239,7 @@
 						  <li><a href="glosarium.php">Glosarium</a>
 						  </li>
 						</ul>
-			</div>
+					</div>
 				</div>
 				<div class="row">
 					<div class="body2">

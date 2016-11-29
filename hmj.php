@@ -139,6 +139,7 @@
 	.center .news-option{
 		width: 600px;
 		height: 200px;
+		max-height: 250px;
 		border-bottom: 1px solid black;
 	}
 	.news-option .img{
@@ -170,7 +171,7 @@
 	}
 	.news-option .news p{
 		margin-top:-10px;
-		font-family: "Calibri";
+		font-family: "Times New Roman";
 	}
 	.center .news-nav{
 		width: 600px;

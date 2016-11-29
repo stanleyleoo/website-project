@@ -24,7 +24,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 		text-align: center;
 	}
 	th,td{
-		max-width: 600px;
+		max-width: 1000px;
 	}
 	th{
 		color:white;
@@ -64,7 +64,6 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 		<table>
 			<th>ID</th>
 			<th>Nama</th>
-			<th>Undang-Undang</th>
 		<?php
 
 		while($row = $rows->fetch_array()){
@@ -76,13 +75,11 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 			echo "<tr>";
 			echo '<td>'. $row['id'] . '</td>';
 			echo '<td>'. $row['nama'] . '</td>';
-			echo "<td><embed src=\"$url_uu\" width=\"600px\" height=\"1000px\" /></td>";
 			echo "<td><a href='".$url_delete."'><button>Hapus</button></a></td>";
 			echo "</tr>";
 		}
 
 		?>
-		<embed src=""></embed>
 		</table>
 		</div>
 	</div>

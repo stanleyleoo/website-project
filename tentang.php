@@ -53,7 +53,7 @@ while($rows = $row->fetch_array()){
 	}
 	.body{
 		width: 1200px;
-		max-height: 5600px;
+		max-height: 6000px;
 		margin: auto;
 	}
 	.header{
@@ -332,7 +332,6 @@ while($rows = $row->fetch_array()){
 			padding-left: 110px;
 			font-size: 18px;
 		}
-
 	</style>
 </head>
 <body>
@@ -361,7 +360,6 @@ while($rows = $row->fetch_array()){
 						  <li><a href="glosarium.php">Glosarium</a></li>
 						</ul>
 			</div>
-				</div>
 		</div>
 		<div class="row">
 			<div class="body2">
@@ -404,6 +402,7 @@ while($rows = $row->fetch_array()){
 					<div class="about-head">
 						<p>Daftar Anggota</p>
 					</div>
+				</div>
 				<div class="row">
 					<div class="wrapper-team">
 						<div class="team">

@@ -283,6 +283,7 @@
 			text-decoration: none;
 			color: black;
 		}	
+		
 </style>
 </head>
 <body>
@@ -320,13 +321,19 @@
 								<div class="head">
 								<h2>Undang Undang</h2>
 								</div>
-								<div style="width: 900px;margin-left: 20px;text-align: left;">
-									<input type="text" name="search" style="width: 800px;height:28px;border:none;text-indent: 20px;" placeholder="Search">
-									<button type="submit" value="Search" style="height: 30px; width: 80px;margin-left:-5px;background-color: #3366ff;color: white;border:none;font-weight: bold;">Search</button>
-								</div>
+								
+									<div style="width: 900px;margin-left: 20px;text-align: left;">
+									<form method="post" action="glosarium.php">
+										<input type="text" name="search" style="width: 800px;height:28px;border:none;text-indent: 20px;" placeholder="Search">
+										<button type="submit" value="Search" style="height: 30px; width: 80px;margin-left:-5px;background-color: #3366ff;color: white;border:none;font-weight: bold;">Search</button>
+									</form>
+									</div>
+								
 								<?php
+								if(empty($_POST['search'])){
 									require_once "db.php";
 									$conn = konek_db();
+
 									$start=0;
 									$limit=10;
 									 
@@ -353,7 +360,7 @@
 									
 									
 									//fetch all the data from database.
-									$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`kegiatan`"));
+									$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`uu`"));
 									//calculate total page number for the given table in the database 
 									$total=ceil($rows/$limit);
 									?>
@@ -374,6 +381,27 @@
 									            else { echo "<li><a href='?page=".$i."'>".$i."</a></li>"; }
 									        }
 									       }
+									   }else{
+											require_once "db.php";
+											$conn = konek_db();
+											$nama_search = "%".$_POST['search']."%";
+											$query = $conn->prepare("select * from `website`.`uu` where nama like ?");
+											$query->bind_param("s",$nama_search);
+											$result = $query->execute();
+											$res = $query->get_result();
+											if($res->num_rows == 0){
+												echo "<img src='img/filenotfound.png' style='margin-left:30%;margin-top:20px;'>";
+											}
+											else if(!empty($_POST['search'])){
+												while($row = $res->fetch_array()){
+													$uu = "undang-undang.php?id=".$row['id'];
+													echo "<div class=\"undang-undang\">";
+													echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
+													echo "</div>";
+												}
+											}
+										}
+
 									?>
 								</ul>
 							</div>
@@ -407,9 +435,6 @@
 										}
 									?>
 								</table>
-								<div class="advertise">
-									<img src="img/ad.jpg">
-								</div>
 							</div>
 							<div class="row">
 								<div class="footer">

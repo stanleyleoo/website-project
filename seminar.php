@@ -353,7 +353,6 @@
                                         <li><b>Location</b> &nbsp: <?php echo $data->location; ?></li><br>
                                         <li><b>Date</b> 	: <?php echo date_format($date,"d F Y"); ?></li>
                                     </ul>
-
                                 </div>
                             </div>
                             <div class="row">
@@ -367,14 +366,7 @@
                                     <h2>Photos</h2>
                                 </div>
                                 <div class="photo">
-
-
-
                                     <div class="slider">
-                                        <!-- <div>
-                                                <a class="slide" onclick="plusDivs(-1)"><i class="fa fa-2x  fa-chevron-left"></i></a>
-                                                <a class= "slide" onclick="plusDivs(1)"><i class="fa fa-2x fa-chevron-right"></i></a>
-                                        </div> -->
                                         <?php
                                         while($row = $rows->fetch_array()){
 
@@ -386,13 +378,6 @@
 											}
 											// $i++;
 										}
-                                        // while ($row = $rows->fetch_array()) {
-                                        //     if ($row['image'] == null)
-                                        //         $image = "img/none.png";
-                                        //     else
-                                        //         $image = "img/" . $row['image'];
-                                        //     echo "<img class=\"mySlides\" src=\"$image\" width=\"1200\" height=\"600\" >";
-                                        // }
                                         ?>
                                     </div>
 
