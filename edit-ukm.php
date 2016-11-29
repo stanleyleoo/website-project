@@ -15,6 +15,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
 <head>
 	<title>Edit UKM</title>
 <style>
+<link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
 	body{
 		background-color: #f5f5f0;
 	}

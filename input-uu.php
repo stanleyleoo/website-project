@@ -13,6 +13,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category']) ) {
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
 	<title>Input Glosarium</title>
 <style>
 	body{
