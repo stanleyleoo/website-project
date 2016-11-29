@@ -52,21 +52,33 @@
                 background-color: #002b80;
             }
             .logo{
-                width: 300px;
+                width: 200px;
                 height: 120px;
                 float: left;
             }
             .logo img{
-                margin-left: 150px;
+                margin-left: 80px;
+                width: 130px;
             }
             .name{
                 width: 800px;
                 height: 120px;
                 color:white;
-                float: right;
+                float: left;
+                text-align: center;
             }
             .name h1{
-                text-align: left;	
+                text-align: center; 
+            }
+            .logo2{
+                width: 200px;
+                height: 120px;
+                float: left;
+            }
+            .logo2 img{
+                margin-left: 0px;
+                width: 100px;
+                padding-top:10px;
             }
             .menu{
                 width: 1200px;
@@ -283,11 +295,13 @@
                         <div class="row">
                             <div class="header">
                                 <div class="logo">
-                                    <img src="img/logo.png">
+                                <img src="img/logo.png">
                                 </div>
                                 <div class="name">
-                                    <h1>Himpunan Mahasiswa Fakultas Hukum<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspUPH Medan</h1>
+                                    <h1>Himpunan Mahasiswa Fakultas Hukum<br>UPH Medan</h1>
+                                </div>
+                                <div class="logo2">
+                                <img src="img/uph.png">
                                 </div>
                             </div>
                         </div>
@@ -384,7 +398,7 @@
 
                                     <div class="row">
                                         <div class="footer">
-                                            <h2>&copy2016 by HMFH UPH MEDAN</h2>
+                                            <h2>Design By : HMJ SI UPH MEDAN</h2>
                                         </div>
                                     </div>
                                 </div>

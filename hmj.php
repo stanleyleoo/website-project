@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel='shortcut icon' type='image/x-icon' href='img/favicon.jpg' />
-	<title>HMF HUKUM UPH MEDAN</title>
+	<title>HMF Hukum UPH Medan</title>
 <style>
 	body{
 		margin: 0px;
@@ -42,7 +42,7 @@
 		float: left;
 	}
 	.logo img{
-		margin-left: 50px;
+		margin-left: 80px;
 		width: 130px;
 	}
 	.name{
@@ -170,7 +170,7 @@
 	}
 	.news-option .news p{
 		margin-top:-10px;
-		font-family: "Times new Roman";
+		font-family: "Calibri";
 	}
 	.center .news-nav{
 		width: 600px;
@@ -651,16 +651,6 @@
 						$rows=mysqli_num_rows(mysqli_query($conn,"select * from `website`.`news`"));
 						//calculate total page number for the given table in the database 
 						$total=ceil($rows/$limit);
-						// if($page>1)
-						// {
-						//     //Go to previous page to show previous 10 items. If its in page 1 then it is inactive
-						//     echo "<a href='?page=".($page-1)."' class='button' style='border:1px solid black;'>PREVIOUS</a>";
-						// }
-						// if($page!=$total)
-						// {
-						//     ////Go to previous page to show next 10 items.
-						//     echo "<a href='?page=".($page+1)."' class='button'>NEXT</a>";
-						// }
 						?>
 					<ul class="news-nav">
 						<?php

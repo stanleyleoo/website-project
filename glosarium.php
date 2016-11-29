@@ -40,21 +40,33 @@
 		background-color: #002b80;
 	}
 	.logo{
-		width: 300px;
+		width: 200px;
 		height: 120px;
 		float: left;
 	}
 	.logo img{
-		margin-left: 150px;
+		margin-left: 80px;
+		width: 130px;
 	}
 	.name{
 		width: 800px;
 		height: 120px;
 		color:white;
-		float: right;
+		float: left;
+		text-align: center;
 	}
 	.name h1{
-		text-align: left;	
+		text-align: center;	
+	}
+	.logo2{
+		width: 200px;
+		height: 120px;
+		float: left;
+	}
+	.logo2 img{
+		margin-left: 0px;
+		width: 100px;
+		padding-top:10px;
 	}
 	.menu{
 		width: 1200px;
@@ -235,7 +247,7 @@
 			height: 100px;
 			background-color: #e0e0d2;
 			margin-left: 20px;
-			margin-top: -15px;
+			margin-top: -19px;
 			border-bottom: 1px solid black;
 		}
 		.undang-undang h2{
@@ -284,8 +296,10 @@
 						<img src="img/logo.png">
 						</div>
 						<div class="name">
-							<h1>Himpunan Mahasiswa Fakultas Hukum<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspUPH Medan</h1>
+							<h1>Himpunan Mahasiswa Fakultas Hukum<br>UPH Medan</h1>
+						</div>
+						<div class="logo2">
+						<img src="img/uph.png">
 						</div>
 					</div>
 				</div>
@@ -306,22 +320,10 @@
 								<div class="head">
 								<h2>Undang Undang</h2>
 								</div>
-								<!-- <?php
-								require_once "db.php";
-								$conn = konek_db();
-								$query = $conn->prepare("select * from `website`.`uu` ORDER BY id ASC");
-								$result= $query->execute();
-								if(!$result)
-									die("Gagal Koneksi");
-								$rows = $query->get_result();
-								
-								while ($row = $rows->fetch_array()) {
-									$uu = "undang-undang.php?id=".$row['id'];
-									echo "<div class=\"undang-undang\">";
-									echo "<a href=\"$uu\"><h2>".$row['nama']."</h2></a>";
-									echo "</div>";
-								}	
-								?> -->
+								<div style="width: 900px;margin-left: 20px;text-align: left;">
+									<input type="text" name="search" style="width: 800px;height:28px;border:none;text-indent: 20px;" placeholder="Search">
+									<button type="submit" value="Search" style="height: 30px; width: 80px;margin-left:-5px;background-color: #3366ff;color: white;border:none;font-weight: bold;">Search</button>
+								</div>
 								<?php
 									require_once "db.php";
 									$conn = konek_db();
@@ -411,7 +413,7 @@
 							</div>
 							<div class="row">
 								<div class="footer">
-								<h2>&copy2016 by HMFH UPH MEDAN</h2>
+								<h2>Design By : HMJ SI UPH MEDAN</h2>
 								</div>
 						</div>
 					</div>
