@@ -24,9 +24,8 @@ $query->bind_result($poster, $col2);
 $image = array();
 while ($query->fetch()) {
   array_push($image, $col2);
-  // printf("%s %s\n", $poster, $image);
 }
-  // $query->fetch();
+
 
 if(!$result)
   die("Gagal query");
@@ -40,7 +39,7 @@ if(!$result)
 // $image = $kegiatan->poster;
 if ($poster != null && file_exists("img/$poster")) {
   //hapus image
-  unlink("img/$image");
+  unlink("img/$poster");
   echo "$poster";
 }
 $i = 0;
@@ -48,7 +47,7 @@ echo "<p>" . count($image) . "</p>";
 for ($i=0; $i < count($image); $i++) { 
 	echo $image[$i] . " " . $i . "<br>";
 	if($image[$i] != null && $image[$i] != "" && file_exists($image[$i])){
-		unlink($image);
+		unlink($image[$i]);
 	}
 }
 $query = $conn->prepare("delete kegiatan, gambar from kegiatan LEFT JOIN gambar ON gambar.id_kegiatan = kegiatan.id where kegiatan.id=?");

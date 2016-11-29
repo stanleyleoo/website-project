@@ -16,7 +16,6 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
         <title>Update Kegiatan</title>
     </head>
     <body>
-    </body>
 
     <?php
     require_once 'db.php';
@@ -36,12 +35,11 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     while ($query->fetch()) {
       array_push($image, $col2);
     }
-
     if (!$result)
         die("Gagal query");
     $rows = $query->get_result();
-    if ($rows->num_rows == 0)
-        die("kegiatan tidak detemukan");
+    // if ($rows->num_rows == 0)
+    //     die("kegiatan tidak ditemukan");
 
     if (!isset($_POST['title']) || !isset($_POST['faculty']) || !isset($_POST['speaker']) || !isset($_POST['location']) || !isset($_POST['date']) || !isset($_POST['conclusion']))
         die(" Data Kegiatan tidak lengkap");
@@ -61,17 +59,17 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
         $file_gambar = '';
         if (isset($_FILES['image'])) {
             if ($_FILES['image']['error'] == 0) {
-                $image = $_FILES['image'];
-                $extension = new SplFileInfo($image['name']);
+                $poster = $_FILES['image'];
+                $extension = new SplFileInfo($poster['name']);
                 $extension = $extension->getExtension();
                 $file_gambar = $title . '.' . $extension;
-                copy($image['tmp_name'], 'img/' . $file_gambar);
+                copy($poster['tmp_name'], 'img/' . $file_gambar);
                 echo "<p>copy image </p>\n";
             }
         }
     } else {
         //tetap file yang lama
-        $file_gambar = $kegiatan->poster;
+        $file_gambar = $poster;
     }
 
 //salin gambar yang diupload ke folder images
@@ -79,10 +77,15 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     $file_post = array();
     if (isset($_FILES['image2'])) {
         $i = 0;
+        // $image2 = $_FILES['image2'][$i];\
+        echo count($image) . "  jumlah unlink" . "<br>";
         for ($i=0; $i < count($image); $i++) { 
-            echo $image[$i] . " " . $i . "<br>";
-            if($image[$i] != null && $image[$i] != "" && file_exists($image[$i])){
-                unlink($image);
+            
+            if($image[$i] != null && $image[$i] != "" && file_exists($image[$i]))
+            {
+                unlink($image[$i]);
+                echo $image[$i] . " " . $i . "<br>";
+
             }
         }
 
@@ -107,6 +110,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
                 $o++;
             }
         }
+        echo "string";
         $query = $conn->prepare("delete gambar from gambar where id_kegiatan=?");
         $query->bind_param('i',$id);
         $result=$query->execute();
@@ -122,11 +126,6 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['category'])) {
     } else {
         echo "no images";
     }
-    
-    
-    
-
-
     $query = $conn->prepare("update kegiatan set title=?,faculty=?,speaker=?,location=?,date=?,conclusion=?,poster=? where id=?");
     $query->bind_param("sssssssi", $title, $faculty, $speaker, $location, $date, $conclusion, $file_gambar, $id);
     $result = $query->execute();

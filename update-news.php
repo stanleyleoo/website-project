@@ -36,7 +36,7 @@ if(!$result)
 	die("Gagal query");
 $rows = $query->get_result();
 if($rows->num_rows == 0)
-	die("news tidak detemukan");
+	die("news tidak ditemukan");
 if(!isset($_POST['title']) || !isset($_POST['date']) || !isset($_POST['preview']) || !isset($_POST['content']))
 		die("Data news tidak lengkap");
 

@@ -93,6 +93,7 @@ while($rows = $row->fetch_array()){
 	.image{
 		background-image: url(<?php echo $url_cover;?>);
 		background-size: 1200px;
+		background-position: center;
 		width: 1200px;
 		max-height: 1500px;
 		margin-top: -50px;
